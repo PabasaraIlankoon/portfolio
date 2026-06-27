@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Pabasara Ilankoon | Electronic & Telecom Engineer",
     description:
       "Embedded AI · Computer Vision · IoT — Engineering undergraduate at KDU Sri Lanka.",
-    images: ["/og-image.png"],
+    images: ["/image/og-image.png"],
   },
 };
 

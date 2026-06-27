@@ -200,7 +200,7 @@ function Lightbox({
 // ─────────────────────────────────────────────
 function AppleGallery({
   images,
-  aspect = "aspect-video",
+  aspect = "aspect-[4/3]", 
 }: {
   images: { src: string; caption: string }[];
   aspect?: string;
@@ -208,11 +208,15 @@ function AppleGallery({
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  const prev = () => setActiveIndex((i) => (i - 1 + images.length) % images.length);
-  const next = () => setActiveIndex((i) => (i + 1) % images.length);
+  const prev = () =>
+    setActiveIndex((i) => (i - 1 + images.length) % images.length);
+
+  const next = () =>
+    setActiveIndex((i) => (i + 1) % images.length);
 
   return (
     <>
+      {/* Lightbox */}
       {lightboxOpen && (
         <Lightbox
           images={images}
@@ -223,39 +227,45 @@ function AppleGallery({
         />
       )}
 
-      {/* Large preview */}
-      <div className="relative group">
-        <button
-          onClick={() => setLightboxOpen(true)}
-          className={`relative w-full ${aspect} rounded-2xl overflow-hidden border border-gray-200 bg-gray-100 cursor-zoom-in block`}
-        >
-          <SafeImage
-            src={images[activeIndex].src}
-            alt={images[activeIndex].caption}
-          />
-          {/* Zoom hint */}
-          <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-            <ZoomIn size={13} className="text-white" />
-          </div>
-        </button>
+      {/* ⭐ IMPORTANT: SIZE CONTROL WRAPPER */}
+      <div className="max-w-md mx-auto">
+        
+        {/* Large preview */}
+        <div className="relative group">
+          <button
+            onClick={() => setLightboxOpen(true)}
+            className={`relative w-full ${aspect} rounded-2xl overflow-hidden border border-gray-200 bg-gray-100 cursor-zoom-in block`}
+          >
+            <SafeImage
+              src={images[activeIndex].src}
+              alt={images[activeIndex].caption}
+            />
 
-        {/* Prev / Next on large image */}
-        {images.length > 1 && (
-          <>
-            <button
-              onClick={prev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 flex items-center justify-center text-white hover:bg-black/60 transition-colors opacity-0 group-hover:opacity-100"
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <button
-              onClick={next}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 flex items-center justify-center text-white hover:bg-black/60 transition-colors opacity-0 group-hover:opacity-100"
-            >
-              <ChevronRight size={18} />
-            </button>
-          </>
-        )}
+            {/* Zoom hint */}
+            <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <ZoomIn size={13} className="text-white" />
+            </div>
+          </button>
+
+          {/* Prev / Next */}
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={prev}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 flex items-center justify-center text-white hover:bg-black/60 transition-colors opacity-0 group-hover:opacity-100"
+              >
+                <ChevronLeft size={18} />
+              </button>
+
+              <button
+                onClick={next}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 flex items-center justify-center text-white hover:bg-black/60 transition-colors opacity-0 group-hover:opacity-100"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </>
+          )}
+        </div>
 
         {/* Caption bar */}
         <div className="mt-2.5 flex items-center justify-between px-1">
@@ -455,12 +465,12 @@ function FirestoreSchema() {
 }
 
 const HIGHLIGHTS = [
-  { icon: "🐘", title: "Detects elephants at 94% average confidence",      body: "YOLOv8 Nano fine-tuned on a custom wildlife-railway dataset achieves 94% average confidence with a false positive rate below 3%. Two consecutive positive frames are required before an alert fires — eliminating momentary shadows or debris triggers." },
+  { icon: "🐘", title: "Detects elephants at 94% average confidence",      body: "YOLOv8 Nano fine-tuned on a custom wildlife-railway dataset achieves 94% average confidence with a false positive rate below 3%. Two consecutive positive frames are required before an alert fires - eliminating momentary shadows or debris triggers." },
   { icon: "⚡", title: "End-to-end alert in under 5 seconds",              body: "From the moment an elephant is confirmed on camera to a push notification on the operator's phone, the pipeline completes in under 5 seconds. Firebase real-time listeners update the web dashboard in under 2 seconds." },
-  { icon: "🚂", title: "Identifies which trains are at risk — right now",  body: "Five high-risk trains pre-loaded with full stop schedules are cross-referenced against the alert location in real time. The engine colour-codes risk levels and updates live as time passes — 'In 23 min' ticks down every minute." },
+  { icon: "🚂", title: "Identifies which trains are at risk — right now",  body: "Five high-risk trains pre-loaded with full stop schedules are cross-referenced against the alert location in real time. The engine colour-codes risk levels and updates live as time passes - 'In 23 min' ticks down every minute." },
   { icon: "📡", title: "GSM SMS fallback — works without internet",        body: "If the Pi loses connectivity, the SIM800L GSM module fires an SMS within 30 seconds. The offline queue persists alerts to disk and retries automatically when connectivity is restored." },
   { icon: "🌐", title: "Two interfaces: Flutter app + Next.js dashboard",  body: "The Flutter app targets railway operators in the field with push notifications, an alert feed, and Sinhala / English language switching. The Next.js dashboard targets control rooms with live alerts, CSV export, and analytics charts." },
-  { icon: "🔋", title: "Designed for remote, off-grid deployment",         body: "Housed in a waterproof enclosure, runs on UPS battery for up to 4 hours. The systemd service auto-starts on every boot — no manual intervention after field installation." },
+  { icon: "🔋", title: "Designed for remote, off-grid deployment",         body: "Housed in a waterproof enclosure, runs on UPS battery for up to 4 hours. The systemd service auto-starts on every boot - no manual intervention after field installation." },
 ];
 
 // ─────────────────────────────────────────────
@@ -482,10 +492,10 @@ export function ElevisionDetail() {
         <SectionLabel>The problem</SectionLabel>
         <div className="space-y-4">
           <p className="text-gray-600 leading-[1.8] text-[0.97rem]">
-            Sri Lanka loses 5–10 elephants every year to train collisions. The railway network passes
-            through critical elephant habitats — the Gal Oya corridor, Minneriya–Kaudulla gathering
-            zones, and the Habarana–Polonnaruwa crossing — mostly at night, when visibility is near zero
-            and response times average 15–30 minutes.
+            Sri Lanka loses 5 - 10 elephants every year to train collisions. The railway network passes
+            through critical elephant habitats - the Gal Oya corridor, Minneriya - Kaudulla gathering
+            zones, and the Habarana - Polonnaruwa crossing - mostly at night, when visibility is near zero
+            and response times average 15 - 30 minutes.
           </p>
           <p className="text-gray-600 leading-[1.8] text-[0.97rem]">
             Elevision is the real-time intelligence layer that sits between the animal and the oncoming
@@ -495,9 +505,9 @@ export function ElevisionDetail() {
         </div>
         <div className="mt-6 grid sm:grid-cols-3 gap-3">
           {[
-            { stat: "5–10",      label: "elephants lost per year",  sub: "to train collisions in Sri Lanka" },
+            { stat: "5 - 10",      label: "elephants lost per year",  sub: "to train collisions in Sri Lanka" },
             { stat: "70%",       label: "collisions at night",      sub: "zero warning for drivers currently" },
-            { stat: "15–30 min", label: "average response time",    sub: "with current manual reporting" },
+            { stat: "15 - 30 min", label: "average response time",    sub: "with current manual reporting" },
           ].map((s, i) => (
             <div key={i} className="rounded-xl bg-red-50 border border-red-100 p-4">
               <div className="text-xl font-bold text-red-700 font-mono">{s.stat}</div>
@@ -512,7 +522,7 @@ export function ElevisionDetail() {
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>Repositories</SectionLabel>
         <p className="text-gray-500 text-sm leading-relaxed mb-5">
-          The system is split across three separate repositories — one per layer. Click any to open on GitHub.
+          The system is split across three separate repositories - one per layer. Click any to open on GitHub.
         </p>
         <div className="grid sm:grid-cols-3 gap-3">
           {REPOS.map((repo) => (
@@ -664,7 +674,7 @@ export function ElevisionDetail() {
             app-analytics.jpg      — Analytics / stats screen
 
         TIP: Use a phone frame / mockup tool (Shots.so, Mockuphone)
-        to wrap each screenshot before saving — looks much more
+        to wrap each screenshot before saving - looks much more
         professional in the gallery.
         ════════════════════════════════════════════════════
       */}
@@ -697,22 +707,7 @@ export function ElevisionDetail() {
       </div>
 
       {/* ── 9. Next.js web dashboard screenshots ── */}
-      {/*
-        ════════════════════════════════════════════════════
-        🖥  ADD YOUR WEB DASHBOARD SCREENSHOTS HERE
-        Crop your web dashboard screenshot into 6 parts and save to:
-          /public/images/elevision/
-            web-dashboard.jpg    — Hero section (live alert + stats at top)
-            web-history.jpg      — Alert history table + CSV export button
-            web-alert-detail.jpg — Alert detail page (map + train risk side)
-            web-devices.jpg      — Device grid (online / offline status cards)
-            web-map.jpg          — Railway zone map full-width view
-            web-analytics.jpg    — Analytics charts section
-
-        TIP: Crop at natural "section breaks" in the page rather than
-        arbitrary pixel cuts — each image should tell its own story.
-        ════════════════════════════════════════════════════
-      */}
+      {}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>Next.js web dashboard</SectionLabel>
         <div className="flex items-center gap-2 mb-4">
@@ -788,14 +783,14 @@ export function ElevisionDetail() {
             </div>
             <ul className="space-y-1.5">
               {[
-                "Live alert hero — image, location, device, confidence",
+                "Live alert hero - image, location, device, confidence",
                 "One-tap acknowledge + mark as reviewed",
                 "Alert history with date filtering and CSV export",
-                "Alert detail — embedded map, train risk assessment",
-                "Device map — Sri Lanka railway zones (Leaflet)",
-                "Devices grid — online / offline status per node",
-                "Train schedule — high-risk trains near corridor",
-                "Analytics — detection trends and confidence stats",
+                "Alert detail - embedded map, train risk assessment",
+                "Device map - Sri Lanka railway zones (Leaflet)",
+                "Devices grid - online / offline status per node",
+                "Train schedule - high-risk trains near corridor",
+                "Analytics - detection trends and confidence stats",
               ].map((item, j) => (
                 <li key={j} className="flex items-start gap-2 text-[12px] text-gray-600">
                   <ChevronRight size={11} className="text-emerald-400 flex-shrink-0 mt-0.5" />

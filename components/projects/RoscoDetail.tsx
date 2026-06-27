@@ -31,10 +31,6 @@ const DIAGRAM_IMAGES: { src: string; caption: string }[] = [
   // { src: "/images/rosco/control_flow.jpg",  caption: "FSM control flowchart" },
 ];
 
-const REPO = {
-  label: "PabasaraIlankoon/autonomous-robot-rosco25",
-  url: "https://github.com/PabasaraIlankoon/autonomous-robot-rosco25",
-};
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -272,7 +268,7 @@ export function RoscoDetail() {
           Chapter and the Electronics, Robotics and Innovation Club of KDU.
         </p>
         <p className="text-gray-600 leading-[1.8] text-[0.97rem]">
-          The robot — codenamed LineStorm — had to master three distinct
+          The robot codenamed LineStorm had to master three distinct
           navigation modes under time pressure: a marked line, a corridor
           maze, and a gradient ramp.
         </p>
@@ -281,27 +277,6 @@ export function RoscoDetail() {
         </div>
       </div>
 
-      {/* ── 2. Repository ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Repository</SectionLabel>
-        <a
-          href={REPO.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-between rounded-xl border border-gray-200 bg-gray-50 hover:bg-gray-100 transition-colors px-5 py-4"
-        >
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center">
-              <Github size={16} className="text-white" />
-            </div>
-            <div>
-              <p className="text-[13px] font-mono font-semibold text-gray-800">{REPO.label}</p>
-              <p className="text-[11px] text-gray-400">Firmware · CAD docs · block diagram</p>
-            </div>
-          </div>
-          <ExternalLink size={14} className="text-gray-400" />
-        </a>
-      </div>
 
       {/* ── 3. Chassis gallery ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
@@ -319,21 +294,6 @@ export function RoscoDetail() {
         <HardwareTable />
       </div>
 
-      {/* ── 5. Project structure ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Project structure</SectionLabel>
-        <StructureBlock />
-      </div>
-
-      {/* ── 6. Block diagram & flowchart ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Block diagram &amp; control flow</SectionLabel>
-        <p className="text-gray-500 text-sm leading-relaxed mb-5">
-          Add the hardware block diagram and FSM control flowchart here
-          once exported from docs/.
-        </p>
-        <AppleGallery images={DIAGRAM_IMAGES} aspect="aspect-[16/9]" />
-      </div>
 
       {/* ── 7. Performance metrics ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
@@ -376,23 +336,6 @@ export function RoscoDetail() {
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>Robot &amp; competition track</SectionLabel>
         <AppleGallery images={ROBOT_IMAGES} aspect="aspect-[16/9]" />
-      </div>
-
-      {/* ── 10. Development notes ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Development notes</SectionLabel>
-        <div className="space-y-3">
-          {[
-            { note: "Implement readLineError() in firmware/sensors/ir_line_sensor.h for a signed lateral error" },
-            { note: "Use firmware/control/pid_controller.h for structured, runtime-tunable PID loops" },
-            { note: "Tune in order — base speed, then Kp for responsiveness, Kd for damping, Ki last" },
-          ].map((d, i) => (
-            <div key={i} className="flex items-start gap-2.5 rounded-xl border border-gray-200 bg-gray-50/50 px-4 py-3">
-              <ChevronRight size={14} className="text-violet-400 flex-shrink-0 mt-0.5" />
-              <p className="text-[12px] text-gray-600">{d.note}</p>
-            </div>
-          ))}
-        </div>
       </div>
 
     </div>

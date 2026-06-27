@@ -9,7 +9,7 @@ export default function Skills() {
   return (
     <section id="skills" className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="section-label mb-3">Skills</div>
+        <div className="section-label mb-0">Skills</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
           What I work with
         </h2>

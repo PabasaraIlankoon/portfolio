@@ -32,7 +32,6 @@ const HARDWARE_IMAGES = [
 const ROBOT_IMAGES = [
   { src: "/images/mars-robot.jpg",        caption: "Assembled robot — full hardware stack" },
   { src: "/images/mars_robot_arena.jpg",  caption: "Competition arena — grid layout" },
-  { src: "/images/mars-robot-arena.jpg",  caption: "Robot navigating the arena" },
   { src: "/images/mars-robot-team.jpg",   caption: "Team at the competition" },
 ];
 
@@ -42,15 +41,7 @@ const ROBOT_IMAGES = [
 //   mars-robot-electronics.jpg — ESP32-S3 + driver wiring close-up
 //   mars-robot-competition.jpg — robot mid-run during competition
 // ─────────────────────────────────────────────
-const ACTION_IMAGES: { src: string; caption: string }[] = [
-  // { src: "/images/mars-robot-electronics.jpg", caption: "Electronics bay — ESP32-S3 + TB6612FNG" },
-  // { src: "/images/mars-robot-competition.jpg", caption: "Mid-run during the competition" },
-];
 
-const REPO = {
-  label: "PabasaraIlankoon/mars-robot-challenge",
-  url: "https://github.com/PabasaraIlankoon/mars-robot-challenge",
-};
 
 // ─────────────────────────────────────────────
 // Shared sub-components
@@ -250,60 +241,6 @@ function HardwareTable() {
   );
 }
 
-// ─────────────────────────────────────────────
-// Firmware architecture + state machine
-// ─────────────────────────────────────────────
-function FirmwareBlock() {
-  return (
-    <div className="bg-gray-950 rounded-xl p-4 font-mono text-[11px] text-gray-300 leading-relaxed overflow-x-auto">
-      <div className="text-gray-600 mb-1">// firmware/ layout</div>
-      <div><span className="text-rose-400">main.cpp</span>                  — top-level state machine</div>
-      <div><span className="text-amber-400">config.h</span>                — pin map & tuning constants</div>
-      <div><span className="text-emerald-400">motor_control.cpp/.h</span>     — PWM, encoder odometry, PID</div>
-      <div><span className="text-violet-400">sensors.cpp/.h</span>           — IR, ultrasonic, colour, IMU, barcode</div>
-      <div><span className="text-sky-400">task1_plantation.cpp/.h</span>    — grid navigation & pick</div>
-      <div><span className="text-sky-400">task2_muddy_ramp.cpp/.h</span>    — obstacle FSM & ramp climb</div>
-      <div><span className="text-sky-400">task3_barcode_sort.cpp/.h</span>  — barcode scan & basket sort</div>
-      <div className="mt-3 text-gray-600">// state machine</div>
-      <div>IDLE → TASK1_PLANTATION → TASK2_MUDDY_RAMP → TASK3_SORT → DONE</div>
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────
-// Key algorithm code blocks
-// ─────────────────────────────────────────────
-function AlgorithmBlocks() {
-  return (
-    <div className="space-y-4">
-      <div>
-        <p className="text-[11px] font-mono text-gray-400 mb-2 uppercase tracking-widest">Line following — PID</p>
-        <div className="bg-gray-950 rounded-xl p-4 font-mono text-[11px] text-gray-300 space-y-1 overflow-x-auto">
-          <div>error = weighted_sum(ir_sensors)  <span className="text-gray-600">// −100 .. +100</span></div>
-          <div>correction = Kp*error + Ki*∫error + Kd*(error − prev_error)</div>
-          <div>leftPWM  = baseSpeed + correction</div>
-          <div>rightPWM = baseSpeed − correction</div>
-        </div>
-      </div>
-      <div>
-        <p className="text-[11px] font-mono text-gray-400 mb-2 uppercase tracking-widest">Barcode decoding</p>
-        <div className="bg-gray-950 rounded-xl p-4 font-mono text-[11px] text-gray-300 space-y-1 overflow-x-auto">
-          <div>3 cm white stripe → bit 0   ·   6 cm white stripe → bit 1</div>
-          <div>read MSB → LSB, left to right</div>
-          <div>decoded value even → good potatoes to RED basket</div>
-          <div>decoded value odd  → good potatoes to BLUE basket</div>
-        </div>
-      </div>
-      <div>
-        <p className="text-[11px] font-mono text-gray-400 mb-2 uppercase tracking-widest">Ramp detection</p>
-        <div className="bg-gray-950 rounded-xl p-4 font-mono text-[11px] text-gray-300 space-y-1 overflow-x-auto">
-          <div>MPU6050 pitch &gt; 5°  → ascending ramp</div>
-          <div>pitch flips negative  → past peak → begin controlled descent</div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 const HIGHLIGHTS = [
   {
@@ -358,27 +295,7 @@ export function MarsRobotDetail() {
         </div>
       </div>
 
-      {/* ── 2. Repository ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Repository</SectionLabel>
-        <a
-          href={REPO.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-between rounded-xl border border-gray-200 bg-gray-50 hover:bg-gray-100 transition-colors px-5 py-4"
-        >
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center">
-              <Github size={16} className="text-white" />
-            </div>
-            <div>
-              <p className="text-[13px] font-mono font-semibold text-gray-800">{REPO.label}</p>
-              <p className="text-[11px] text-gray-400">Firmware · CAD references · docs</p>
-            </div>
-          </div>
-          <ExternalLink size={14} className="text-gray-400" />
-        </a>
-      </div>
+      
 
       {/* ── 3. CAD & chassis gallery ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
@@ -396,22 +313,7 @@ export function MarsRobotDetail() {
         <HardwareTable />
       </div>
 
-      {/* ── 5. Firmware architecture ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Firmware architecture</SectionLabel>
-        <p className="text-gray-500 text-sm leading-relaxed mb-5">
-          One top-level state machine drives three task modules, each
-          owning its own navigation and decision logic.
-        </p>
-        <FirmwareBlock />
-      </div>
-
-      {/* ── 6. Key algorithms ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Key algorithms</SectionLabel>
-        <AlgorithmBlocks />
-      </div>
-
+      
       {/* ── 7. Performance metrics ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>System at a glance</SectionLabel>
@@ -455,41 +357,7 @@ export function MarsRobotDetail() {
         <AppleGallery images={ROBOT_IMAGES} aspect="aspect-[16/9]" />
       </div>
 
-      {/* ── 10. Action shots (placeholder) ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Electronics &amp; competition run</SectionLabel>
-        <p className="text-gray-500 text-sm leading-relaxed mb-5">
-          Add close-up wiring photos and in-competition action shots here
-          once available.
-        </p>
-        <AppleGallery images={ACTION_IMAGES} aspect="aspect-[16/9]" />
-      </div>
-
-      {/* ── 11. Tuning guide ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Tuning guide</SectionLabel>
-        <p className="text-gray-500 text-sm leading-relaxed mb-5">
-          All key parameters live in <code className="text-[11px] bg-gray-100 px-1 rounded">firmware/config.h</code>.
-          Tune in this order:
-        </p>
-        <div className="space-y-3">
-          {[
-            { step: "BASE_SPEED",  note: "Adjust until the robot follows a straight line without oscillating" },
-            { step: "Kp, Kd",      note: "Increase Kp for tighter line tracking, Kd to reduce overshoot" },
-            { step: "WALL_STOP_CM", note: "Distance at which the robot brakes before an obstacle" },
-            { step: "YELLOW_HUE_MIN/MAX", note: "Verify under competition lighting with a test potato" },
-            { step: "RAMP_CLIMB_SPEED / RAMP_DESCEND_SPEED", note: "Tune for grip on the ramp surface" },
-          ].map((t, i) => (
-            <div key={i} className="flex items-start gap-2.5 rounded-xl border border-gray-200 bg-gray-50/50 px-4 py-3">
-              <ChevronRight size={14} className="text-rose-400 flex-shrink-0 mt-0.5" />
-              <div>
-                <span className="font-mono text-[12px] font-semibold text-rose-700">{t.step}</span>
-                <span className="text-[12px] text-gray-500"> — {t.note}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+    
 
     </div>
   );

@@ -26,7 +26,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="section-label mb-3">Contact</div>
+        <div className="section-label mb-0">Contact</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
           Get In Touch
         </h2>

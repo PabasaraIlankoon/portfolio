@@ -95,7 +95,7 @@ export default function Achievements() {
 
       <section id="achievements" className="py-28 px-6 bg-surface">
         <div className="max-w-6xl mx-auto">
-          <div className="section-label mb-3">Recognition</div>
+          <div className="section-label mb-0">Recognition</div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
             Achievements
           </h2>

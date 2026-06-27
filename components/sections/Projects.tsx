@@ -28,9 +28,9 @@ export default function Projects() {
       : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="projects" className="py-28 px-6 bg-surface">
+    <section id="projects" className="py-14 px-6 bg-surface">
       <div className="max-w-6xl mx-auto">
-        <div className="section-label mb-3">Projects</div>
+        <div className="section-label mb-0">Projects</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
           What I&apos;ve Built
         </h2>

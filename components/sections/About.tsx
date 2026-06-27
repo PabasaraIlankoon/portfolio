@@ -10,7 +10,7 @@ export default function About() {
   return (
     <section id="about" className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="section-label mb-3">About Me</div>
+        <div className="section-label mb-0">About Me</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
           Building intelligent systems where<br />
           <em className="not-italic text-accent-light">software meets hardware.</em>
@@ -56,7 +56,6 @@ export default function About() {
                 { v: "6+", l: "Projects" },
                 { v: "5", l: "Certifications" },
                 { v: "2", l: "Degrees (in progress)" },
-                { v: "IEEE", l: "ComSoc KDU Chairman" },
                 { v: "IET", l: "Member" },
                 { v: "2024", l: "Started KDU" },
               ].map((s, i) => (

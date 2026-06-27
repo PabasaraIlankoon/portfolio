@@ -23,15 +23,6 @@ const WEB_IMAGES = [
   { src: "/images/Performance Analysis.png", caption: "BER vs SNR performance analysis" },
 ];
 
-const MOBILE_IMAGES: { src: string; caption: string }[] = [
-  // { src: "/images/digicomm/mobile-home.jpg", caption: "Kivy app — scheme selector" },
-  // { src: "/images/digicomm/mobile-plot.jpg", caption: "On-device BER plot" },
-];
-
-const REPO = {
-  label: "PabasaraIlankoon/Digital_Communication_Simulator",
-  url: "https://github.com/PabasaraIlankoon/Digital_Communication_Simulator",
-};
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -224,11 +215,7 @@ const HIGHLIGHTS = [
     title: "Fully interactive Plotly visualisations",
     body: "Waveforms, constellation diagrams, eye diagrams, and power spectral density plots are all rendered with Plotly — zoomable, pannable, and exportable straight from the browser.",
   },
-  {
-    icon: <Smartphone size={18} className="text-rose-500" />,
-    title: "Android packaging via Kivy + Buildozer",
-    body: "The same simulation core is wrapped in a Kivy UI and packaged into a debug APK with Buildozer, documented end-to-end in APK_BUILD_GUIDE.md.",
-  },
+  
 ];
 
 export function DigitalCommDetail() {
@@ -247,13 +234,12 @@ export function DigitalCommDetail() {
         <p className="text-gray-600 leading-[1.8] text-[0.97rem]">
           The simulator lets a student or researcher pick a modulation
           scheme, set a noise level, and immediately see the waveform,
-          the constellation, and the resulting bit error rate — no
+          the constellation, and the resulting bit error rate - no
           installation beyond Python and a browser.
         </p>
         <div className="mt-6 grid sm:grid-cols-3 gap-3">
           {[
             { stat: "4",  label: "Modulation schemes",    sub: "ASK · QPSK · 16-QAM · OFDM" },
-            { stat: "0",  label: "MATLAB licences needed", sub: "fully open, browser-based"   },
             { stat: "2",  label: "Delivery modes",         sub: "Flask web app + Kivy Android app" },
           ].map((s, i) => (
             <div key={i} className="rounded-xl bg-sky-50 border border-sky-100 p-4">
@@ -265,39 +251,8 @@ export function DigitalCommDetail() {
         </div>
       </div>
 
-      {/* ── 2. Repository ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Repository</SectionLabel>
-        <a
-          href={REPO.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-between rounded-xl border border-gray-200 bg-gray-50 hover:bg-gray-100 transition-colors px-5 py-4"
-        >
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center">
-              <Github size={16} className="text-white" />
-            </div>
-            <div>
-              <p className="text-[13px] font-mono font-semibold text-gray-800">{REPO.label}</p>
-              <p className="text-[11px] text-gray-400">Flask web app · Kivy mobile app · DSP modules</p>
-            </div>
-          </div>
-          <ExternalLink size={14} className="text-gray-400" />
-        </a>
-      </div>
 
-      {/* ── 3. Architecture ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Architecture</SectionLabel>
-        <p className="text-gray-500 text-sm leading-relaxed mb-5">
-          A Flask backend exposes each modulation module through simple
-          routes. The frontend renders results with Plotly. A Kivy build
-          shares the same Python core for an offline Android version.
-        </p>
-        <ArchitectureBlock />
-      </div>
-
+      
       {/* ── 4. Modulation schemes ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>Modulation schemes</SectionLabel>
@@ -351,34 +306,6 @@ export function DigitalCommDetail() {
         </div>
       </div>
 
-      {/* ── 8. Mobile app ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Mobile app — Kivy + Buildozer</SectionLabel>
-        <div className="flex items-center gap-2 mb-4">
-          <Smartphone size={14} className="text-sky-500" />
-          <span className="text-sm font-semibold text-gray-800">Android (debug APK)</span>
-        </div>
-        <p className="text-gray-500 text-sm leading-relaxed mb-5">
-          The same simulation core runs offline on Android through a Kivy
-          interface, built and packaged with Buildozer.
-        </p>
-        <div className="max-w-[260px] mx-auto">
-          <AppleGallery images={MOBILE_IMAGES} aspect="aspect-[9/16]" />
-        </div>
-      </div>
-
-      {/* ── 9. Run locally ── */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-        <SectionLabel>Run it locally</SectionLabel>
-        <div className="bg-gray-950 rounded-xl p-4 font-mono text-[11px] text-gray-300 space-y-1.5 overflow-x-auto">
-          <div><span className="text-gray-600"># install dependencies</span></div>
-          <div>pip install flask numpy matplotlib scipy</div>
-          <div className="mt-2"><span className="text-gray-600"># start the web app</span></div>
-          <div>cd web_app &amp;&amp; python app.py</div>
-          <div className="mt-2"><span className="text-gray-600"># open in browser</span></div>
-          <div>http://localhost:5000</div>
-        </div>
-      </div>
 
     </div>
   );

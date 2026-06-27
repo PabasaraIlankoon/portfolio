@@ -44,7 +44,7 @@ export const education = [
 ];
 
 export const leadership = [
-  { role: "Chairman", org: "IEEE ComSoc KDU", period: "Jun 2026 – Present" },
+ 
   {
     role: "Finance Team Lead",
     org: "GENESIZ'26",
@@ -118,7 +118,7 @@ export const projects: Project[] = [
       "/images/projects/elevision/hardware.jpg",
     ],
     category: "AI & Computer Vision",
-    year: "2024",
+    year: "2026",
     status: "research",
     featured: true,
     image: "/images/elevision-profile.jpg",
@@ -164,6 +164,7 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
       "/images/lankamesh/app-messages.jpg",
       "/images/lankamesh-sos.jpg",
       "/images/lankamesh-mobile.jpg",
+      "/images/lankamesh_flowchart.jpg",
     ],
     category: "IoT & Embedded",
     year: "2025",
@@ -269,7 +270,7 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
     
     ],
     category: "Software",
-    year: "2024",
+    year: "2026",
     status: "completed",
     featured: false,
     image: "/images/ASK Modulation.png",
@@ -307,7 +308,7 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
       "/images/mars-robot-team.jpg",
     ],
     category: "Robotics",
-    year: "2024",
+    year: "2025",
     status: "completed",
     featured: false,
     image: "/images/mars-robot.jpg",
@@ -565,13 +566,7 @@ export const certifications: Certification[] = [
       "Active participation in the PCB Design workshop on EAGLE Software, held at the Faculty of Engineering, General Sir John Kotelawala Defence University. Organized by IET On-Campus (KDU) and Sri Lanka Institute of Robotics.",
     image: "/images/PCB_certificate.jpg",
   },
-  {
-    title: "Deep Learning Specialization",
-    org: "DeepLearning.AI",
-    year: "2024",
-    description:
-      "Neural networks, CNNs, sequence models, optimization algorithms, hyperparameter tuning, and reinforcement learning fundamentals.",
-  },
+  
   {
     title: "MATLAB Fundamentals",
     org: "MATLAB Training Program",

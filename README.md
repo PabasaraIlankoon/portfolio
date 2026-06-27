@@ -24,7 +24,7 @@ pabasara-portfolio/
 │       ├── Achievements.tsx ← Awards + certifications
 │       └── Contact.tsx      ← Contact form + links
 ├── lib/
-│   └── data.ts              ← ⭐ ALL YOUR CONTENT IS HERE — edit this!
+│   └── data.ts              
 ├── public/
 │   ├── images/              ← Put your photos here
 │   │   └── profile.jpg      ← Your profile photo

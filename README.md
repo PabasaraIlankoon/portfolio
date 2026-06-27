@@ -1,7 +1,7 @@
+
 # Pabasara Ilankoon — Portfolio
 
 Built with **Next.js 14** + **Tailwind CSS** + **TypeScript**.  
-Same structure as [sahas-eashanme.vercel.app](https://sahas-eashanme.vercel.app/).
 
 ---
 
@@ -148,3 +148,7 @@ accent: "#6c63ff",         // Main purple — change this
 **Build error** → Run `npm run build` to see detailed errors
 
 **Port 3000 in use** → Run `npm run dev -- -p 3001`
+
+# portfolio
+Electronics &amp; Telecommunication Engineering portfolio featuring AI/ML systems, robotics competitions, and full-stack applications.
+

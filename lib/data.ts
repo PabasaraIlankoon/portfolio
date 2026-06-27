@@ -97,7 +97,7 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "Elevision",
-    subtitle: "AI-Based Elephant Detection & Early Warning System",
+    subtitle: "AI-Based Elephant Detection & Early Warning",
     description:
       "Real-time AI-powered railway safety system that detects elephants on or near tracks using computer vision deployed at the edge on Raspberry Pi.",
     longDescription:
@@ -137,7 +137,7 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
   {
     id: 2,
     title: "LankaMesh",
-    subtitle: "LoRa-Based Disaster Communication System",
+    subtitle: "LoRa-Based Disaster Communication",
     description:
       "Decentralised emergency communication network for disaster environments — no internet or cellular required. ESP32-S3 nodes form a LoRa mesh with SOS broadcast, GPS sharing, and a Flutter app over USB.",
     longDescription:
@@ -186,7 +186,7 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
   {
     id: 3,
     title: "AgroVision Tomato AI",
-    subtitle: "Intelligent Tomato Leaf Disease Detection",
+    subtitle: "Deep Learning Tomato Leaf Disease Detection",
     description:
       "Full-stack AI system for tomato leaf disease classification using EfficientNetB0 transfer learning, served via FastAPI with a React web demo and Flutter mobile app.",
     longDescription:
@@ -241,18 +241,25 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
   },
   {
     id: 4,
-    title: "Digital Communication Simulator",
-    subtitle: "Web-Based Communication Systems Simulator",
+    title: "Digital Comm Simulator",
+    subtitle: "DSP & Modulation Simulator",
     description:
-      "Interactive simulation platform for digital communication systems with modulation schemes, AWGN channel effects, and BER vs SNR analysis.",
+      "Browser-based simulator for digital modulation, noisy channels, and BER analysis — no MATLAB licence required.",
     longDescription:
-      "Built as a learning and analysis tool for digital communications coursework and research, this simulator lets users configure and visualise complete digital communication chains in the browser — no MATLAB licence required.\n\nSupported modulation schemes include ASK, QPSK, and 16-QAM, with OFDM multi-carrier modulation for broadband scenarios. The AWGN channel model introduces configurable noise levels, and the BER vs SNR performance curves are generated in real-time using SciPy numerical methods.\n\nAll signal visualisations — time-domain waveforms, constellation diagrams, power spectral density plots — are rendered interactively using Plotly, allowing users to zoom, pan, and export. The Flask backend handles computationally intensive simulations, keeping the frontend responsive.",
+      "A communication systems laboratory that runs entirely in the browser. Built for coursework, research, and self-study in digital communications, the simulator lets users configure modulation schemes, channel conditions, and noise levels, then see the result instantly.\n\n" +
+      "Four modulation schemes are supported: ASK, QPSK, 16-QAM, and OFDM for multi-carrier scenarios. Each scheme lives in its own dedicated Python module — ask.py, qpsk.py, qam.py, ofdm.py — keeping the simulation logic modular and easy to extend.\n\n" +
+      "An AWGN channel model lets users dial in a target SNR and watch how each scheme degrades under noise. The BER vs SNR module runs the full simulation across a range of noise levels and renders the performance curve in real time using SciPy.\n\n" +
+      "All signal visualisations — time-domain waveforms, constellation diagrams, eye diagrams, and power spectral density plots — are rendered with Plotly, so results can be zoomed, panned, and exported directly from the browser.\n\n" +
+      "A Flask backend handles the heavy simulation work, keeping the frontend responsive even for larger OFDM configurations. A parallel Kivy-based mobile app, packaged with Buildozer, brings the same simulation engine to Android as a standalone APK.",
     highlights: [
       "ASK, QPSK, 16-QAM and OFDM modulation schemes",
+      "Modular per-scheme Python modules (ask.py, qpsk.py, qam.py, ofdm.py)",
       "AWGN channel model with configurable SNR",
       "Real-time BER vs SNR performance curves",
-      "Interactive Plotly constellation and waveform plots",
+      "Interactive Plotly constellation, waveform & eye diagrams",
       "Power spectral density visualisation",
+      "Flask REST backend separates simulation from rendering",
+      "Kivy + Buildozer Android packaging pipeline",
       "No MATLAB required — fully browser-based",
     ],
     images: [
@@ -265,67 +272,83 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
     year: "2024",
     status: "completed",
     featured: false,
-    image: "/images/comms.jpg",
-    tech: ["Python", "Flask", "NumPy", "SciPy", "Plotly", "Matplotlib", "DSP"],
-    github: "https://github.com/pvillankoon",
+    image: "/images/ASK Modulation.png",
+    tech: ["Python", "Flask", "NumPy", "SciPy", "Plotly", "Matplotlib", "Kivy", "Buildozer", "DSP"],
+    github: "https://github.com/PabasaraIlankoon/Digital_Communication_Simulator",
   },
   {
     id: 5,
     title: "Mars Robot",
-    subtitle: "Autonomous Competition Robotics System",
+    subtitle: "Embedded Autonomous System",
     description:
-      "Autonomous robot for competition-based navigation and object handling using sensor fusion and SolidWorks-designed chassis.",
+      "Autonomous robot built for the Mars Robot Challenge — grid navigation, obstacle avoidance, ramp climbing, and barcode-guided sorting, all running on a single ESP32-S3.",
     longDescription:
-      "Designed and built for a university robotics competition simulating planetary surface exploration tasks, this autonomous robot navigates an obstacle course, identifies coloured objects by type, and deposits them into designated zones — all without human input.\n\nThe sensor suite combines IR sensors for close-range obstacle detection, ultrasonic sensors for distance measurement, an MPU6050 IMU for orientation tracking, and a TCS34725 colour sensor for object classification. All sensor data is fused in real-time on an ESP32-S3, which runs the navigation state machine and motor control.\n\nThe chassis was designed in SolidWorks and fabricated using 3D printing, with careful attention to weight distribution and ground clearance for the competition surface. TB6612FNG motor drivers with encoder feedback enable precise wheel odometry for dead-reckoning navigation.",
+      "Built for the Mars Robot Challenge: Greenhouse Survival Edition, adapted from SLRC 2025 (University Category) under the ET 2223 Embedded Systems course at KDU, this robot simulates greenhouse operations on Mars from start to finish, with zero human input once it starts.\n\n" +
+      "The challenge is split into three tasks. In Plantation, the robot navigates a 6×4 grid, identifies green-sticker plant cells, and collects yellow and white ping-pong-ball potatoes. In Muddy Road & Ramp, it avoids randomly placed obstacles and climbs a 20-degree ramp. In Collection & Sort, it scans a binary barcode and sorts good and bad potatoes into the correct baskets.\n\n" +
+      "An ESP32-S3 runs the full state machine — IDLE through three tasks to DONE — fusing data from an 8-channel IR array, three HC-SR04 ultrasonic sensors, a TCS34725 colour sensor, and an MPU6050 IMU. A TB6612FNG H-bridge drives the wheels with encoder feedback for accurate odometry, while four MG90S servos operate a 2-degree-of-freedom arm and a sorting gate.\n\n" +
+      "The chassis is laser-cut acrylic, designed in SolidWorks, with a 3D-printed PLA arm. A 2S LiPo battery regulated down to 5V keeps the whole system self-contained, staying within the competition's 24V supply limit.\n\n" +
+      "Line following runs on a tuned PID loop reading the IR array. The barcode decoder reads stripe widths to recover a binary value. Ramp detection uses MPU6050 pitch to trigger controlled climbing and descent.",
     highlights: [
-      "Fully autonomous navigation and object handling",
-      "4-sensor fusion: IR, ultrasonic, IMU, colour",
-      "ESP32-S3 real-time state machine control",
+      "Three-task state machine: Plantation → Muddy Road & Ramp → Sort",
+      "Sensor fusion: 8-ch IR array, 3× HC-SR04, TCS34725, MPU6050",
+      "PID-based line following with tunable Kp / Ki / Kd",
+      "Binary barcode decoding (3 cm = 0, 6 cm = 1 stripe width)",
+      "MPU6050 pitch-based ramp climb & descent detection",
+      "4× MG90S servo arm with gripper and sorting gate",
+      "SolidWorks-designed, laser-cut acrylic chassis",
       "TB6612FNG motor driver with encoder odometry",
-      "SolidWorks chassis design, 3D printed fabrication",
-      "Colour-based object classification and sorting",
     ],
     images: [
-      "/images/projects/mars-robot/hero.jpg",
-      "/images/projects/mars-robot/chassis.jpg",
-      "/images/projects/mars-robot/electronics.jpg",
-      "/images/projects/mars-robot/competition.jpg",
+      "/images/mars-robot.jpg",
+      "/images/mars_robot_arena.jpg",
+      "/images/mars-robot-brackets.jpg",
+      "/images/chassis_solidworks.jpg",
+      "/images/chassis_photo.jpg",
+      "/images/mars-robot-team.jpg",
     ],
     category: "Robotics",
     year: "2024",
     status: "completed",
     featured: false,
     image: "/images/mars-robot.jpg",
-    tech: ["ESP32-S3", "C/C++", "MPU6050", "TCS34725", "SolidWorks", "TB6612FNG"],
+    tech: ["ESP32-S3", "C/C++", "MPU6050", "TCS34725", "HC-SR04", "MG90S", "SolidWorks", "TB6612FNG", "PlatformIO"],
+    github: "https://github.com/PabasaraIlankoon/mars-robot-challenge",
   },
   {
     id: 6,
     title: "ROSCO'25 Robot",
-    subtitle: "Autonomous Line & Wall Following Robot",
+    subtitle: "Embedded Navigation System",
     description:
-      "Competition robot capable of line following, wall following, and ramp navigation with ToF sensor array and IMU-based stability.",
+      "LineStorm — a three-mode autonomous robot built for ROSCO'25, combining line following, wall following, and ramp navigation on one ESP32-S3 platform.",
     longDescription:
-      "Built for the ROSCO'25 inter-university robotics competition, this robot had to master three distinct navigation modes under time pressure: precise line following on a marked track, wall following through a corridor maze, and stable ramp climbing with gradient compensation.\n\nThe VL53L0X time-of-flight sensor array provides millimetre-accurate wall distance measurements for the corridor navigation mode. The IR sensor array handles line detection with 8-sensor resolution for smooth PID-based path following. The MPU6050 IMU detects ramp gradients and adjusts motor power to maintain speed and prevent tipping.\n\nThe chassis is laser-cut acrylic with custom 3D-printed motor mounts and sensor brackets. Encoder-based feedback on both drive wheels enables accurate distance measurement and differential steering for tight corners.",
+      "Built for the ROSCO'25 inter-university robotics competition, organised by the Institution of Mechanical Engineers Student Chapter and the Electronics, Robotics and Innovation Club of KDU, this robot — codenamed LineStorm — had to master three distinct navigation modes under time pressure.\n\n" +
+      "Line following uses an 8-element IR array with a PID controller for smooth, accurate path tracking on a marked track. Wall following relies on a VL53L0X time-of-flight sensor for millimetre-accurate distance sensing through a corridor maze. Ramp navigation uses an MPU6050 IMU to detect gradient changes and adjust motor power so the robot neither stalls nor tips.\n\n" +
+      "An ESP32-S3 runs the full finite state machine, with a TB6612FNG driver controlling N20 geared DC motors. Encoder feedback on both wheels enables accurate distance measurement and differential steering through tight corners.\n\n" +
+      "The chassis is laser-cut acrylic with custom 3D-printed motor mounts and sensor brackets, keeping the platform light, rigid, and easy to repair between competition runs.\n\n" +
+      "PID tuning followed a deliberate order: base speed first, then Kp for responsiveness, Kd for damping, and Ki last for steady-state correction.",
     highlights: [
       "Three navigation modes: line, wall, ramp",
-      "VL53L0X ToF array for millimetre wall sensing",
+      "VL53L0X ToF sensor for millimetre wall sensing",
       "8-sensor IR array with PID line following",
       "MPU6050 IMU for ramp gradient compensation",
+      "FSM-based firmware (ROSCO25_Robot.ino)",
       "Encoder-based wheel odometry",
+      "Deliberate PID tuning order: speed → Kp → Kd → Ki",
       "Laser-cut acrylic + 3D-printed chassis",
     ],
     images: [
-      "/images/projects/rosco/hero.jpg",
-      "/images/projects/rosco/sensors.jpg",
-      "/images/projects/rosco/chassis.jpg",
-      "/images/projects/rosco/track.jpg",
+      "/images/rosco.jpg",
+      "/images/rosco-robot.jpg",
+      "/images/rosco-chassis.jpg",
+      "/images/rosco-brackets.jpg",
     ],
     category: "Robotics",
     year: "2025",
     status: "completed",
     featured: false,
-    image: "/images/rosco.jpg",
-    tech: ["ESP32-S3", "VL53L0X", "IR Sensors", "MPU6050", "TB6612FNG", "SolidWorks"],
+    image: "/images/rosco-robot.jpg",
+    tech: ["ESP32-S3", "VL53L0X", "IR Sensors", "MPU6050", "TB6612FNG", "SolidWorks", "PlatformIO"],
+    github: "https://github.com/PabasaraIlankoon/autonomous-robot-rosco25",
   },
 ];
 

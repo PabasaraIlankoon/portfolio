@@ -23,6 +23,9 @@ import {
 import { projects } from "@/lib/data";
 import { ElevisionDetail } from "@/components/projects/ElevisionDetail";
 import { LankaMeshDetail } from "@/components/projects/LankaMeshDetail";
+import { DigitalCommDetail } from "@/components/projects/DigitalCommDetail";
+import { MarsRobotDetail } from "@/components/projects/MarsRobotdetail";
+import { RoscoDetail } from "@/components/projects/RoscoDetail";
 
 // ─────────────────────────────────────────────
 // Types
@@ -348,6 +351,14 @@ export default function ProjectDetailClient({ id }: { id: string }) {
   const isElevision = project.id === 1;
   const isLankaMesh = project.id === 2;
   const isAgroVision = project.id === 3;
+  const isDigitalComm = project.id === 4;
+  const isMarsRobot = project.id === 5;
+  const isRosco = project.id === 6;
+
+  // Projects with a fully custom detail component — skip the generic
+  // "About this project" + highlights block entirely for these.
+  const hasCustomDetail =
+    isElevision || isLankaMesh || isDigitalComm || isMarsRobot || isRosco;
 
   const comparisonImages: string[] = project.comparisons
     ? project.comparisons.flatMap((c) => [c.photo, c.result])
@@ -448,10 +459,14 @@ export default function ProjectDetailClient({ id }: { id: string }) {
             {/* ════════════ LEFT COLUMN ════════════ */}
             <div className="space-y-8 min-w-0">
 
-              {/* ── Elevision: full rich detail component ── */}
-              {isElevision ? (
-                <ElevisionDetail />
-              ) : (
+              {/* ── Fully custom detail components ── */}
+              {isElevision && <ElevisionDetail />}
+              {isLankaMesh && <LankaMeshDetail />}
+              {isDigitalComm && <DigitalCommDetail />}
+              {isMarsRobot && <MarsRobotDetail />}
+              {isRosco && <RoscoDetail />}
+
+              {!hasCustomDetail && (
                 <>
                   {/* Description — plain text only, no inline images */}
                   <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
@@ -466,8 +481,6 @@ export default function ProjectDetailClient({ id }: { id: string }) {
                       ))}
                     </div>
                   </div>
-                    {/* LankaMesh: full rich detail component */} 
-                    
 
                   {/* AgroVision: How it works pipeline */}
                   {isAgroVision && <AgroVisionPipeline />}

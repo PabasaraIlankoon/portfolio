@@ -17,21 +17,12 @@ import {
   Waves,
 } from "lucide-react";
 
-// ─────────────────────────────────────────────
-// Web app screenshots — already uploaded
-// ─────────────────────────────────────────────
 const WEB_IMAGES = [
-  { src: "/images/ASK Modulation.png",      caption: "ASK modulation — waveform & constellation" },
-  { src: "/images/OFDM Modulation.png",     caption: "OFDM modulation — multi-carrier view" },
+  { src: "/images/ASK Modulation.png",       caption: "ASK modulation — waveform & constellation" },
+  { src: "/images/OFDM Modulation.png",      caption: "OFDM modulation — multi-carrier view" },
   { src: "/images/Performance Analysis.png", caption: "BER vs SNR performance analysis" },
 ];
 
-// ─────────────────────────────────────────────
-// PLACEHOLDER — add Kivy/Android mobile screenshots here
-// Save to /public/images/digicomm/ and update the array below:
-//   mobile-home.jpg     — Kivy app home / scheme selector
-//   mobile-plot.jpg      — Matplotlib plot rendered on device
-// ─────────────────────────────────────────────
 const MOBILE_IMAGES: { src: string; caption: string }[] = [
   // { src: "/images/digicomm/mobile-home.jpg", caption: "Kivy app — scheme selector" },
   // { src: "/images/digicomm/mobile-plot.jpg", caption: "On-device BER plot" },
@@ -42,9 +33,6 @@ const REPO = {
   url: "https://github.com/PabasaraIlankoon/Digital_Communication_Simulator",
 };
 
-// ─────────────────────────────────────────────
-// Shared sub-components
-// ─────────────────────────────────────────────
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-[11px] font-mono font-semibold text-gray-400 uppercase tracking-widest mb-5">
@@ -53,11 +41,11 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function SafeImage({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
+function SafeImage({ src, alt }: { src: string; alt: string }) {
   const [error, setError] = useState(false);
   if (error) {
     return (
-      <div className={`flex flex-col items-center justify-center bg-gray-100 text-gray-300 gap-1 ${className}`}>
+      <div className="flex flex-col items-center justify-center bg-gray-100 text-gray-300 gap-1 absolute inset-0">
         <Camera size={20} />
         <span className="text-[9px] font-mono text-center px-2 leading-tight opacity-60">
           {src.split("/").pop()}
@@ -170,15 +158,12 @@ function MetricCard({ value, label, sub, accent = false }: { value: string; labe
   );
 }
 
-// ─────────────────────────────────────────────
-// Modulation schemes table
-// ─────────────────────────────────────────────
 function ModulationTable() {
   const rows = [
-    { scheme: "ASK",     module: "ask.py",   idea: "Amplitude shift keying — binary 0/1 mapped to two amplitudes" },
-    { scheme: "QPSK",    module: "qpsk.py",  idea: "4 phase states, 2 bits per symbol" },
-    { scheme: "16-QAM",  module: "qam.py",   idea: "Combined amplitude + phase, 4 bits per symbol" },
-    { scheme: "OFDM",    module: "ofdm.py",  idea: "Multi-carrier — data split across orthogonal sub-carriers" },
+    { scheme: "ASK",    module: "ask.py",   idea: "Amplitude shift keying — binary 0/1 mapped to two amplitudes" },
+    { scheme: "QPSK",   module: "qpsk.py",  idea: "4 phase states, 2 bits per symbol" },
+    { scheme: "16-QAM", module: "qam.py",   idea: "Combined amplitude + phase, 4 bits per symbol" },
+    { scheme: "OFDM",   module: "ofdm.py",  idea: "Multi-carrier — data split across orthogonal sub-carriers" },
   ];
   return (
     <div className="overflow-x-auto">
@@ -204,9 +189,6 @@ function ModulationTable() {
   );
 }
 
-// ─────────────────────────────────────────────
-// Architecture file tree
-// ─────────────────────────────────────────────
 function ArchitectureBlock() {
   return (
     <div className="bg-gray-950 rounded-xl p-4 font-mono text-[11px] text-gray-300 leading-relaxed overflow-x-auto">
@@ -249,9 +231,6 @@ const HIGHLIGHTS = [
   },
 ];
 
-// ═══════════════════════════════════════════════════════════
-//  MAIN EXPORT
-// ═══════════════════════════════════════════════════════════
 export function DigitalCommDetail() {
   return (
     <div className="space-y-8">
@@ -273,9 +252,9 @@ export function DigitalCommDetail() {
         </p>
         <div className="mt-6 grid sm:grid-cols-3 gap-3">
           {[
-            { stat: "4",   label: "Modulation schemes", sub: "ASK · QPSK · 16-QAM · OFDM" },
-            { stat: "0",   label: "MATLAB licences needed", sub: "fully open, browser-based" },
-            { stat: "2",   label: "Delivery modes", sub: "Flask web app + Kivy Android app" },
+            { stat: "4",  label: "Modulation schemes",    sub: "ASK · QPSK · 16-QAM · OFDM" },
+            { stat: "0",  label: "MATLAB licences needed", sub: "fully open, browser-based"   },
+            { stat: "2",  label: "Delivery modes",         sub: "Flask web app + Kivy Android app" },
           ].map((s, i) => (
             <div key={i} className="rounded-xl bg-sky-50 border border-sky-100 p-4">
               <div className="text-xl font-bold text-sky-700 font-mono">{s.stat}</div>
@@ -319,7 +298,7 @@ export function DigitalCommDetail() {
         <ArchitectureBlock />
       </div>
 
-      {/* ── 4. Modulation schemes table ── */}
+      {/* ── 4. Modulation schemes ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>Modulation schemes</SectionLabel>
         <ModulationTable />
@@ -340,14 +319,14 @@ export function DigitalCommDetail() {
         <SectionLabel>What the simulator measures</SectionLabel>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
-            { value: "ASK / QPSK", label: "Baseline schemes",   sub: "binary & quadrature",      accent: true },
-            { value: "16-QAM",     label: "Higher-order scheme", sub: "4 bits / symbol" },
-            { value: "OFDM",       label: "Multi-carrier",      sub: "sub-carrier allocation",    accent: true },
-            { value: "AWGN",       label: "Channel model",      sub: "configurable SNR" },
-            { value: "BER vs SNR", label: "Performance curve",  sub: "SciPy-driven sweep",         accent: true },
-            { value: "PSD",        label: "Spectral view",      sub: "power spectral density" },
-            { value: "Eye diagram",label: "Timing view",        sub: "symbol-timing visual",       accent: true },
-            { value: "APK",        label: "Android build",      sub: "Buildozer pipeline" },
+            { value: "ASK / QPSK",  label: "Baseline schemes",    sub: "binary & quadrature",     accent: true },
+            { value: "16-QAM",      label: "Higher-order scheme",  sub: "4 bits / symbol" },
+            { value: "OFDM",        label: "Multi-carrier",        sub: "sub-carrier allocation",  accent: true },
+            { value: "AWGN",        label: "Channel model",        sub: "configurable SNR" },
+            { value: "BER vs SNR",  label: "Performance curve",    sub: "SciPy-driven sweep",      accent: true },
+            { value: "PSD",         label: "Spectral view",        sub: "power spectral density" },
+            { value: "Eye diagram", label: "Timing view",          sub: "symbol-timing visual",    accent: true },
+            { value: "APK",         label: "Android build",        sub: "Buildozer pipeline" },
           ].map((m, i) => (
             <MetricCard key={i} {...m} />
           ))}
@@ -372,7 +351,7 @@ export function DigitalCommDetail() {
         </div>
       </div>
 
-      {/* ── 8. Mobile app (Kivy) ── */}
+      {/* ── 8. Mobile app ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>Mobile app — Kivy + Buildozer</SectionLabel>
         <div className="flex items-center gap-2 mb-4">
@@ -381,8 +360,7 @@ export function DigitalCommDetail() {
         </div>
         <p className="text-gray-500 text-sm leading-relaxed mb-5">
           The same simulation core runs offline on Android through a Kivy
-          interface, built and packaged with Buildozer. Add screenshots of
-          the mobile UI below once available.
+          interface, built and packaged with Buildozer.
         </p>
         <div className="max-w-[260px] mx-auto">
           <AppleGallery images={MOBILE_IMAGES} aspect="aspect-[9/16]" />

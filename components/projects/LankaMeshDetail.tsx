@@ -157,9 +157,6 @@ function MetricCard({ value, label, sub, accent = false }: { value: string; labe
   );
 }
 
-// ─────────────────────────────────────────────
-// Wiring reference
-// ─────────────────────────────────────────────
 function WiringTable() {
   const rows = [
     { from: "GPIO 5  (NSS)",  to: "LoRa NSS/CS",   bus: "SPI" },
@@ -178,11 +175,11 @@ function WiringTable() {
     { from: "USB-C",          to: "Flutter App",    bus: "CDC 115200" },
   ];
   const busColor: Record<string, string> = {
-    "SPI":     "text-indigo-600 bg-indigo-50",
-    "UART2":   "text-emerald-600 bg-emerald-50",
-    "I²C":     "text-violet-600 bg-violet-50",
-    "1-Wire":  "text-amber-600 bg-amber-50",
-    "Digital": "text-gray-600 bg-gray-100",
+    "SPI":        "text-indigo-600 bg-indigo-50",
+    "UART2":      "text-emerald-600 bg-emerald-50",
+    "I²C":        "text-violet-600 bg-violet-50",
+    "1-Wire":     "text-amber-600 bg-amber-50",
+    "Digital":    "text-gray-600 bg-gray-100",
     "CDC 115200": "text-orange-600 bg-orange-50",
   };
   return (
@@ -213,9 +210,6 @@ function WiringTable() {
   );
 }
 
-// ─────────────────────────────────────────────
-// BOM table
-// ─────────────────────────────────────────────
 function BOMTable() {
   const rows = [
     { component: "ESP32-S3 N16R8",                 qty: 3, unit: 1500, total: 4500 },
@@ -228,7 +222,6 @@ function BOMTable() {
     { component: "Waterproof ABS Enclosure",        qty: 3, unit: 1800, total: 5400 },
   ];
   const grandTotal = rows.reduce((s, r) => s + r.total, 0);
-
   return (
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
@@ -262,9 +255,6 @@ function BOMTable() {
   );
 }
 
-// ─────────────────────────────────────────────
-// Serial protocol reference
-// ─────────────────────────────────────────────
 function ProtocolBlock() {
   return (
     <div className="space-y-4">
@@ -292,26 +282,21 @@ function ProtocolBlock() {
   );
 }
 
-// ─────────────────────────────────────────────
-// Comparison table
-// ─────────────────────────────────────────────
 function ComparisonTable() {
   const rows = [
-    { feature: "Infrastructure-free", lankamesh: true,  gotenna: true,  beartooth: true,  garmin: "Satellite" },
+    { feature: "Infrastructure-free", lankamesh: true,   gotenna: true,    beartooth: true,  garmin: "Satellite" },
     { feature: "Cost per node",       lankamesh: "~$20", gotenna: "~$180", beartooth: "~$250", garmin: "~$350 + sub" },
     { feature: "Range",               lankamesh: "5 km", gotenna: "6.4 km", beartooth: "3 km", garmin: "Global" },
-    { feature: "Multi-hop mesh",      lankamesh: true,  gotenna: true,  beartooth: false, garmin: false },
-    { feature: "GPS sharing",         lankamesh: true,  gotenna: true,  beartooth: true,  garmin: true  },
-    { feature: "Open-source",         lankamesh: true,  gotenna: false, beartooth: false, garmin: false },
-    { feature: "Custom categories",   lankamesh: true,  gotenna: false, beartooth: false, garmin: "Limited" },
+    { feature: "Multi-hop mesh",      lankamesh: true,   gotenna: true,    beartooth: false, garmin: false },
+    { feature: "GPS sharing",         lankamesh: true,   gotenna: true,    beartooth: true,  garmin: true  },
+    { feature: "Open-source",         lankamesh: true,   gotenna: false,   beartooth: false, garmin: false },
+    { feature: "Custom categories",   lankamesh: true,   gotenna: false,   beartooth: false, garmin: "Limited" },
   ];
-
   const cell = (v: boolean | string) => {
     if (v === true)  return <span className="text-emerald-600 font-semibold">✓</span>;
     if (v === false) return <span className="text-gray-300">—</span>;
     return <span className="text-[12px] text-gray-600">{v}</span>;
   };
-
   return (
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
@@ -340,9 +325,6 @@ function ComparisonTable() {
   );
 }
 
-// ═══════════════════════════════════════════════════════════
-//  MAIN EXPORT
-// ═══════════════════════════════════════════════════════════
 export function LankaMeshDetail() {
   return (
     <div className="space-y-8">
@@ -363,9 +345,9 @@ export function LankaMeshDetail() {
         </p>
         <div className="mt-6 grid sm:grid-cols-3 gap-3">
           {[
-            { stat: "0",       label: "Infrastructure required", sub: "no towers, no internet" },
-            { stat: "5 km",    label: "Range per hop",           sub: "open terrain, 433 MHz" },
-            { stat: "~$20",    label: "Cost per node",           sub: "vs $180+ commercial" },
+            { stat: "0",    label: "Infrastructure required", sub: "no towers, no internet" },
+            { stat: "5 km", label: "Range per hop",           sub: "open terrain, 433 MHz"  },
+            { stat: "~$20", label: "Cost per node",           sub: "vs $180+ commercial"    },
           ].map((s, i) => (
             <div key={i} className="rounded-xl bg-orange-50 border border-orange-100 p-4">
               <div className="text-xl font-bold text-orange-700 font-mono">{s.stat}</div>
@@ -376,7 +358,7 @@ export function LankaMeshDetail() {
         </div>
       </div>
 
-      {/* ── 2. GitHub ── */}
+      {/* ── 2. Repository ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>Repository</SectionLabel>
         <a
@@ -408,7 +390,7 @@ export function LankaMeshDetail() {
         <AppleGallery images={HARDWARE_IMAGES} aspect="aspect-[16/9]" />
       </div>
 
-      {/* ── 4. System architecture diagram ── */}
+      {/* ── 4. Block diagram ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>System architecture</SectionLabel>
         <p className="text-gray-500 text-sm leading-relaxed mb-5">
@@ -426,33 +408,33 @@ export function LankaMeshDetail() {
         </div>
       </div>
 
-      {/* ── 5. Flow chart ── */}
-     <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-  <SectionLabel>Node operation flowchart</SectionLabel>
-  <div className="max-w-[520px] mx-auto rounded-xl overflow-hidden border border-gray-100 bg-gray-50">
-    <Image
-      src="/images/lankamesh_flow_chart.png"
-      alt="LankaMesh node operation flowchart"
-      width={800}
-      height={900}
-      className="w-full h-auto object-contain"
-    />
-  </div>
-</div>
+      {/* ── 5. Flowchart ── */}
+      <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
+        <SectionLabel>Node operation flowchart</SectionLabel>
+        <div className="max-w-[520px] mx-auto rounded-xl overflow-hidden border border-gray-100 bg-gray-50">
+          <Image
+            src="/images/lankamesh_flow_chart.png"
+            alt="LankaMesh node operation flowchart"
+            width={800}
+            height={900}
+            className="w-full h-auto object-contain"
+          />
+        </div>
+      </div>
 
       {/* ── 6. Performance metrics ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>Performance metrics</SectionLabel>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
-            { value: "5 km",     label: "Range per hop",       sub: "open terrain, SF10",    accent: true },
-            { value: "433 MHz",  label: "LoRa frequency",      sub: "free ISM band" },
-            { value: "SF10",     label: "Spreading factor",    sub: "~980 bps data rate",    accent: true },
-            { value: "20 dBm",   label: "TX power",            sub: "max output" },
-            { value: "<400 ms",  label: "SOS relay latency",   sub: "flood backoff 100–400 ms", accent: true },
-            { value: "5",        label: "Message categories",  sub: "Medical / Flood / Fire…" },
-            { value: "3 nodes",  label: "Current deployment",  sub: "bidirectional tested",   accent: true },
-            { value: "~$20",     label: "Cost per node",       sub: "vs $180+ commercial" },
+            { value: "5 km",    label: "Range per hop",      sub: "open terrain, SF10",       accent: true },
+            { value: "433 MHz", label: "LoRa frequency",     sub: "free ISM band" },
+            { value: "SF10",    label: "Spreading factor",   sub: "~980 bps data rate",       accent: true },
+            { value: "20 dBm",  label: "TX power",           sub: "max output" },
+            { value: "<400 ms", label: "SOS relay latency",  sub: "flood backoff 100–400 ms", accent: true },
+            { value: "5",       label: "Message categories", sub: "Medical / Flood / Fire…" },
+            { value: "3 nodes", label: "Current deployment", sub: "bidirectional tested",     accent: true },
+            { value: "~$20",    label: "Cost per node",      sub: "vs $180+ commercial" },
           ].map((m, i) => (
             <MetricCard key={i} {...m} />
           ))}
@@ -472,12 +454,12 @@ export function LankaMeshDetail() {
             {
               icon: <WifiOff size={18} className="text-red-500" />,
               title: "Zero infrastructure — no internet or cellular",
-              body: "Nodes communicate entirely peer-to-peer over LoRa radio. There are no servers, no SIM cards, no Wi-Fi access points. The system works in the field the moment cellular towers fail — which is exactly when disaster communication is needed most.",
+              body: "Nodes communicate entirely peer-to-peer over LoRa radio. There are no servers, no SIM cards, no Wi-Fi access points. The system works in the field the moment cellular towers fail.",
             },
             {
               icon: <AlertTriangle size={18} className="text-red-600" />,
               title: "One-button SOS broadcast with GPS coordinates",
-              body: "The GPIO0 button triggers an immediate SOS packet containing the node's GPS coordinates, broadcast to all nodes in range. The packet is relayed by every intermediate node automatically — no configuration needed.",
+              body: "The GPIO0 button triggers an immediate SOS packet containing the node's GPS coordinates, broadcast to all nodes in range. The packet is relayed by every intermediate node automatically.",
             },
             {
               icon: <MapPin size={18} className="text-blue-500" />,
@@ -487,17 +469,17 @@ export function LankaMeshDetail() {
             {
               icon: <MessageSquare size={18} className="text-emerald-500" />,
               title: "Structured emergency message categories",
-              body: "Messages are tagged as Medical, Flood, Landslide, Fire, Evacuation, Supply Request, or Other. This lets receivers and coordinators triage incoming alerts by type rather than wading through unstructured text.",
+              body: "Messages are tagged as Medical, Flood, Landslide, Fire, Evacuation, Supply Request, or Other — letting receivers triage incoming alerts by type rather than wading through unstructured text.",
             },
             {
               icon: <Battery size={18} className="text-green-600" />,
               title: "Battery-backed for multi-day field operation",
-              body: "The ESP32-S3 uses light-sleep between transmissions to minimise current draw. DHT22 and GPS are duty-cycled. A standard 18650 Li-ion cell powers a node for 48+ hours in the field with no power infrastructure.",
+              body: "The ESP32-S3 uses light-sleep between transmissions to minimise current draw. DHT22 and GPS are duty-cycled. A standard 18650 Li-ion cell powers a node for 48+ hours in the field.",
             },
             {
               icon: <Smartphone size={18} className="text-indigo-500" />,
               title: "Flutter app via USB — no Bluetooth pairing required",
-              body: "The Flutter app connects over USB CDC Serial at 115200 baud — no Bluetooth pairing, no Wi-Fi setup. The app shows incoming messages, allows sending categorised text, triggers SOS, displays the map, and reads node sensor data.",
+              body: "The Flutter app connects over USB CDC Serial at 115200 baud. The app shows incoming messages, allows sending categorised text, triggers SOS, displays the map, and reads node sensor data.",
             },
           ].map((h, i) => (
             <div key={i} className="flex items-start gap-4">
@@ -594,8 +576,6 @@ export function LankaMeshDetail() {
               LankaMesh was presented at TECHXHIBIT 2026, KDU's undergraduate innovation showcase.
               Two fully functional nodes demonstrated reliable bidirectional communication, SOS broadcast,
               GPS coordinate sharing, and Flutter app integration live at the exhibition.
-              This is more than a competition prototype — it is a step toward community-driven
-              disaster communication infrastructure for Sri Lanka.
             </p>
           </div>
         </div>

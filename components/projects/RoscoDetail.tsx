@@ -16,28 +16,16 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-// ─────────────────────────────────────────────
-// Chassis / hardware gallery — already uploaded
-// ─────────────────────────────────────────────
 const HARDWARE_IMAGES = [
-  { src: "/images/rosco-chassis.jpg",   caption: "Laser-cut acrylic chassis" },
-  { src: "/images/rosco-brackets.jpg",  caption: "3D-printed sensor brackets" },
+  { src: "/images/rosco-chassis.jpg",  caption: "Laser-cut acrylic chassis" },
+  { src: "/images/rosco-brackets.jpg", caption: "3D-printed sensor brackets" },
 ];
 
-// ─────────────────────────────────────────────
-// Robot / track gallery — already uploaded
-// ─────────────────────────────────────────────
 const ROBOT_IMAGES = [
-  { src: "/images/rosco.jpg",        caption: "Assembled LineStorm robot" },
-  { src: "/images/rosco-robot.jpg",  caption: "Robot on the competition track" },
+  { src: "/images/rosco.jpg",       caption: "Assembled LineStorm robot" },
+  { src: "/images/rosco-robot.jpg", caption: "Robot on the competition track" },
 ];
 
-// ─────────────────────────────────────────────
-// PLACEHOLDER — add block diagram / flowchart / wiring photos here
-// Save to /public/images/rosco/ and update the array below:
-//   block_diagram.jpg   — hardware block diagram
-//   control_flow.jpg    — FSM control flowchart
-// ─────────────────────────────────────────────
 const DIAGRAM_IMAGES: { src: string; caption: string }[] = [
   // { src: "/images/rosco/block_diagram.jpg", caption: "Hardware block diagram" },
   // { src: "/images/rosco/control_flow.jpg",  caption: "FSM control flowchart" },
@@ -48,9 +36,6 @@ const REPO = {
   url: "https://github.com/PabasaraIlankoon/autonomous-robot-rosco25",
 };
 
-// ─────────────────────────────────────────────
-// Shared sub-components
-// ─────────────────────────────────────────────
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-[11px] font-mono font-semibold text-gray-400 uppercase tracking-widest mb-5">
@@ -59,11 +44,11 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function SafeImage({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
+function SafeImage({ src, alt }: { src: string; alt: string }) {
   const [error, setError] = useState(false);
   if (error) {
     return (
-      <div className={`flex flex-col items-center justify-center bg-gray-100 text-gray-300 gap-1 ${className}`}>
+      <div className="flex flex-col items-center justify-center bg-gray-100 text-gray-300 gap-1 absolute inset-0">
         <Camera size={20} />
         <span className="text-[9px] font-mono text-center px-2 leading-tight opacity-60">
           {src.split("/").pop()}
@@ -176,14 +161,11 @@ function MetricCard({ value, label, sub, accent = false }: { value: string; labe
   );
 }
 
-// ─────────────────────────────────────────────
-// Navigation modes table
-// ─────────────────────────────────────────────
 function ModesTable() {
   const rows = [
-    { mode: "Line following", sensor: "8-element IR array",  desc: "PID-based path tracking on a marked track" },
-    { mode: "Wall following",  sensor: "VL53L0X ToF",         desc: "Millimetre-accurate distance through a corridor maze" },
-    { mode: "Ramp navigation", sensor: "MPU6050 IMU",         desc: "Gradient detection with motor power compensation" },
+    { mode: "Line following", sensor: "8-element IR array", desc: "PID-based path tracking on a marked track" },
+    { mode: "Wall following", sensor: "VL53L0X ToF",        desc: "Millimetre-accurate distance through a corridor maze" },
+    { mode: "Ramp navigation", sensor: "MPU6050 IMU",       desc: "Gradient detection with motor power compensation" },
   ];
   return (
     <div className="overflow-x-auto">
@@ -209,12 +191,9 @@ function ModesTable() {
   );
 }
 
-// ─────────────────────────────────────────────
-// Hardware table
-// ─────────────────────────────────────────────
 function HardwareTable() {
   const rows = [
-    { component: "ESP32-S3",            purpose: "Main MCU running the FSM" },
+    { component: "ESP32-S3",             purpose: "Main MCU running the FSM" },
     { component: "TB6612FNG",            purpose: "Dual H-bridge motor driver" },
     { component: "N20 geared DC motors", purpose: "Drivetrain (6V)" },
     { component: "8-element IR array",   purpose: "Line sensing" },
@@ -243,9 +222,6 @@ function HardwareTable() {
   );
 }
 
-// ─────────────────────────────────────────────
-// Project structure block
-// ─────────────────────────────────────────────
 function StructureBlock() {
   return (
     <div className="bg-gray-950 rounded-xl p-4 font-mono text-[11px] text-gray-300 leading-relaxed overflow-x-auto">
@@ -283,14 +259,11 @@ const HIGHLIGHTS = [
   },
 ];
 
-// ═══════════════════════════════════════════════════════════
-//  MAIN EXPORT
-// ═══════════════════════════════════════════════════════════
 export function RoscoDetail() {
   return (
     <div className="space-y-8">
 
-      {/* ── 1. Problem / challenge ── */}
+      {/* ── 1. The challenge ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>The challenge</SectionLabel>
         <p className="text-gray-600 leading-[1.8] text-[0.97rem] mb-4">
@@ -352,7 +325,7 @@ export function RoscoDetail() {
         <StructureBlock />
       </div>
 
-      {/* ── 6. Block diagram & flowchart (placeholder) ── */}
+      {/* ── 6. Block diagram & flowchart ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
         <SectionLabel>Block diagram &amp; control flow</SectionLabel>
         <p className="text-gray-500 text-sm leading-relaxed mb-5">
@@ -367,14 +340,14 @@ export function RoscoDetail() {
         <SectionLabel>System at a glance</SectionLabel>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
-            { value: "3",        label: "Navigation modes", sub: "line · wall · ramp",     accent: true },
-            { value: "8-ch",     label: "IR array",         sub: "PID line following" },
-            { value: "VL53L0X",  label: "ToF sensor",       sub: "wall distance",          accent: true },
-            { value: "MPU6050",  label: "IMU",              sub: "ramp gradient" },
-            { value: "ESP32-S3", label: "Microcontroller",  sub: "main FSM",                accent: true },
-            { value: "TB6612FNG",label: "Motor driver",     sub: "N20 motors" },
-            { value: "Encoders", label: "Odometry",         sub: "differential steering",   accent: true },
-            { value: "Acrylic",  label: "Chassis material", sub: "laser-cut" },
+            { value: "3",         label: "Navigation modes", sub: "line · wall · ramp",    accent: true },
+            { value: "8-ch",      label: "IR array",         sub: "PID line following" },
+            { value: "VL53L0X",   label: "ToF sensor",       sub: "wall distance",         accent: true },
+            { value: "MPU6050",   label: "IMU",              sub: "ramp gradient" },
+            { value: "ESP32-S3",  label: "Microcontroller",  sub: "main FSM",              accent: true },
+            { value: "TB6612FNG", label: "Motor driver",     sub: "N20 motors" },
+            { value: "Encoders",  label: "Odometry",         sub: "differential steering", accent: true },
+            { value: "Acrylic",   label: "Chassis material", sub: "laser-cut" },
           ].map((m, i) => (
             <MetricCard key={i} {...m} />
           ))}

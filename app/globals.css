@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --font-jetbrains-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #08080f;
+  color: #f0f0f8;
+  font-family: var(--font-space-grotesk);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08080f;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a40;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6c63ff;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: linear-gradient(
+      rgba(108, 99, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(108, 99, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Glow effects */
+.glow-purple {
+  box-shadow: 0 0 40px rgba(108, 99, 255, 0.15);
+}
+.glow-text {
+  text-shadow: 0 0 60px rgba(108, 99, 255, 0.4);
+}
+
+/* Section label */
+.section-label {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6c63ff;
+}
+
+/* Pill / tag */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 6px;
+  font-family: var(--font-jetbrains-mono);
+  font-size: 0.72rem;
+  background: rgba(108, 99, 255, 0.1);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  color: #a78bfa;
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: rgba(108, 99, 255, 0.45) !important;
+}
+
+/* Nav link underline */
+.nav-link {
+  position: relative;
+  color: #9090b0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #6c63ff;
+  transition: width 0.25s ease;
+}
+.nav-link:hover {
+  color: #f0f0f8;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+.nav-link.active {
+  color: #f0f0f8;
+}
+
+/* Fade up animation for sections */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tab active state */
+.tab-active {
+  color: #f0f0f8 !important;
+  border-bottom: 2px solid #6c63ff;
+}

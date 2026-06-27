@@ -1,0 +1,30 @@
+import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Pabasara Ilankoon | Electronic & Telecommunication Engineer",
+  description:
+    "Electronic and Telecommunication Engineering undergraduate at KDU. Passionate about Embedded AI, Computer Vision, IoT, and Wireless Communication.",
+  keywords:
+    "Pabasara Ilankoon, Electronic Engineering, Telecommunication, AI, Embedded Systems, Computer Vision, IoT, Sri Lanka, Portfolio",
+  openGraph: {
+    title: "Pabasara Ilankoon | Electronic & Telecom Engineer",
+    description:
+      "Embedded AI · Computer Vision · IoT — Engineering undergraduate at KDU Sri Lanka.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Pabasara Ilankoon Portfolio",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}

@@ -1,3 +1,5 @@
+// app/projects/[id]/page.tsx
+
 import { projects } from "@/lib/data";
 import ProjectDetailClient from "@/components/projects/ProjectDetailClient";
 

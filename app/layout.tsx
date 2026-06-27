@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://pabasara-ilankoon.vercel.app",
     images: [
       {
-        url: "/og-image.png",
+        url: "/images/og-image.png",  // ✅ correct path
         width: 1200,
         height: 630,
         alt: "Pabasara Ilankoon Portfolio",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Pabasara Ilankoon | Electronic & Telecom Engineer",
     description:
       "Embedded AI · Computer Vision · IoT — Engineering undergraduate at KDU Sri Lanka.",
-    images: ["/image/og-image.png"],
+    images: ["/images/og-image.png"],  // ✅ correct path
   },
 };
 

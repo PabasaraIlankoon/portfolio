@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Electronic and Telecommunication Engineering undergraduate at KDU. Passionate about Embedded AI, Computer Vision, IoT, and Wireless Communication.",
   keywords:
     "Pabasara Ilankoon, Electronic Engineering, Telecommunication, AI, Embedded Systems, Computer Vision, IoT, Sri Lanka, Portfolio",
-  metadataBase: new URL("https://pabasara-ilankoon.vercel.app"),
+  metadataBase: new URL("https://portfolio-kappa-lemon-55.vercel.app"),
   openGraph: {
     title: "Pabasara Ilankoon | Electronic & Telecom Engineer",
     description:
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Pabasara Ilankoon Portfolio",
-    url: "https://pabasara-ilankoon.vercel.app",
+    url: "https://portfolio-kappa-lemon-55.vercel.app",
     images: [
       {
-        url: "/images/og-image.png",  // ✅ correct path
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Pabasara Ilankoon Portfolio",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Pabasara Ilankoon | Electronic & Telecom Engineer",
     description:
       "Embedded AI · Computer Vision · IoT — Engineering undergraduate at KDU Sri Lanka.",
-    images: ["/images/og-image.png"],  // ✅ correct path
+    images: ["/og-image.png"],
   },
 };
 

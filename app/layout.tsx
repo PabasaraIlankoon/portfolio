@@ -14,6 +14,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Pabasara Ilankoon Portfolio",
+    url: "https://portfolio-6ifu9gu74-pabasara-ilankoon.vercel.app/", 
+    images: [
+      {
+        url: "https://portfolio-6ifu9gu74-pabasara-ilankoon.vercel.app/og-image.png", 
+        width: 1200,
+        height: 630,
+        alt: "Pabasara Ilankoon Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pabasara Ilankoon | Electronic & Telecom Engineer",
+    description: "Embedded AI · Computer Vision · IoT — Engineering undergraduate at KDU Sri Lanka.",
+    images: ["https://portfolio-6ifu9gu74-pabasara-ilankoon.vercel.app/og-image.png"],
   },
 };
 

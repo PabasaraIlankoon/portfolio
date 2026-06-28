@@ -101,7 +101,7 @@ export const projects: Project[] = [
     description:
       "Real-time AI-powered railway safety system that detects elephants on or near tracks using computer vision deployed at the edge on Raspberry Pi.",
     longDescription:
-      "Elevision is an end-to-end AI safety system designed to protect both wildlife and passengers on Sri Lankan railways. Elephants crossing railway tracks at night is a critical problem causing both animal deaths and train accidents. The system uses a YOLOv8 object detection model fine-tuned on a custom dataset of elephant images in railway environments, exported to ONNX format for efficient edge inference on Raspberry Pi hardware.\n\nThe pipeline captures live video from cameras mounted near high-risk track sections, runs inference locally on the Raspberry Pi, and triggers multi-channel alerts — GSM SMS to train operators, push notifications via Firebase to a Flutter mobile app, and visual indicators at the trackside unit — all within 2 seconds of detection.\n\nA React.js web dashboard provides real-time monitoring, alert history, and system health status for railway control rooms. The dual-channel alert (edge + cloud) ensures reliability even during intermittent internet connectivity.",
+      "Elevision is an end-to-end AI safety system designed to protect both wildlife and passengers on Sri Lankan railways. Elephants crossing railway tracks at night is a critical problem causing both animal deaths and train accidents. The system uses a YOLOv8 object detection model fine-tuned on a custom dataset of elephant images in railway environments, exported to ONNX format for efficient edge inference on Raspberry Pi hardware.\n\nThe pipeline captures live video from cameras mounted near high-risk track sections, runs inference locally on the Raspberry Pi, and triggers multi-channel alerts - GSM SMS to train operators, push notifications via Firebase to a Flutter mobile app, and visual indicators at the trackside unit - all within 2 seconds of detection.\n\nA React.js web dashboard provides real-time monitoring, alert history, and system health status for railway control rooms. The dual-channel alert (edge + cloud) ensures reliability even during intermittent internet connectivity.",
     highlights: [
       "YOLOv8 model fine-tuned on custom wildlife-railway dataset",
       "ONNX export for efficient Raspberry Pi edge inference",
@@ -139,24 +139,24 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
     title: "LankaMesh",
     subtitle: "LoRa-Based Disaster Communication",
     description:
-      "Decentralised emergency communication network for disaster environments — no internet or cellular required. ESP32-S3 nodes form a LoRa mesh with SOS broadcast, GPS sharing, and a Flutter app over USB.",
+      "Decentralised emergency communication network for disaster environments - no internet or cellular required. ESP32-S3 nodes form a LoRa mesh with SOS broadcast, GPS sharing, and a Flutter app over USB.",
     longDescription:
       "LankaMesh addresses a critical gap in Sri Lanka's disaster response infrastructure: when floods, landslides, or cyclones knock out cellular towers and internet connectivity, first responders and civilians lose the ability to communicate.\n\n" +
-      "The system creates a resilient mesh communication network using ESP32-S3 N16R8 microcontrollers paired with LoRa SX1278 RA-02 modules operating at 433 MHz, capable of peer-to-peer range up to 5 km in open terrain. Each node acts as both a terminal and a relay — SOS packets are flooded through the mesh with random backoff to avoid collisions.\n\n" +
+      "The system creates a resilient mesh communication network using ESP32-S3 N16R8 microcontrollers paired with LoRa SX1278 RA-02 modules operating at 433 MHz, capable of peer-to-peer range up to 5 km in open terrain. Each node acts as both a terminal and a relay - SOS packets are flooded through the mesh with random backoff to avoid collisions.\n\n" +
       "Features include one-button SOS broadcast with embedded GPS coordinates, real-time location sharing via NEO-6M GPS, structured emergency message categories (Medical, Flood, Landslide, Fire, Evacuation), environmental sensing via DHT22, and a local OLED status display. Nodes are housed in waterproof ABS enclosures on custom PCBs designed in EasyEDA.\n\n" +
-      "A Flutter mobile app connects over USB CDC Serial — no Bluetooth pairing or network setup required. Presented at TECHXHIBIT 2026 (Hardware & IoT Track) with two fully functional nodes demonstrating live bidirectional communication and SOS broadcast.",
+      "A Flutter mobile app connects over USB CDC Serial - no Bluetooth pairing or network setup required. Presented at TECHXHIBIT 2026 (Hardware & IoT Track) with two fully functional nodes demonstrating live bidirectional communication and SOS broadcast.",
     highlights: [
-      "LoRa SX1278 RA-02 mesh — up to 5 km per hop, 433 MHz",
-      "Zero infrastructure — no internet or cellular required",
+      "LoRa SX1278 RA-02 mesh - up to 5 km per hop, 433 MHz",
+      "Zero infrastructure - no internet or cellular required",
       "One-button SOS broadcast with embedded GPS coordinates",
       "Mesh relay with random backoff collision avoidance",
       "Categorised messages: Medical, Flood, Landslide, Fire, Evacuation",
       "Real-time GPS sharing (NEO-6M) + OLED status display",
       "DHT22 environmental sensing (temperature & humidity)",
       "Custom PCB (EasyEDA) in waterproof ABS enclosure",
-      "Flutter app via USB CDC — no Bluetooth pairing needed",
+      "Flutter app via USB CDC - no Bluetooth pairing needed",
       "3-node system cost: Rs. 20,550 (~$68 USD)",
-      "Presented at TECHXHIBIT 2026 — Hardware & IoT Track",
+      "Presented at TECHXHIBIT 2026 - Hardware & IoT Track",
     ],
     images: [
       "/images/lankamesh-detail.jpg",
@@ -182,11 +182,11 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
       "EasyEDA",
     ],
     github: "https://github.com/SanchilaAmavi/LankaMesh",
-    highlight: "TECHXHIBIT 2026 — Hardware & IoT Track",
+    highlight: "TECHXHIBIT 2026 - Hardware & IoT Track",
   },
   {
     id: 3,
-    title: "AgroVision Tomato AI",
+    title: "AgroVision AI",
     subtitle: "Deep Learning Tomato Leaf Disease Detection",
     description:
       "Full-stack AI system for tomato leaf disease classification using EfficientNetB0 transfer learning, served via FastAPI with a React web demo and Flutter mobile app.",
@@ -217,17 +217,17 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
       {
         photo: "/images/tomato_leaf_sample_2.png",
         result: "/images/screenshot_tomato_powdery_mildew.png",
-        caption: "Powdery mildew — detected with treatment guidance",
+        caption: "Powdery mildew - detected with treatment guidance",
       },
       {
         photo: "/images/tomato_leaf_sample_3.jpg",
         result: "/images/screenshot_tomato_bacterial_spot_1.png",
-        caption: "Bacterial spot — high-confidence detection",
+        caption: "Bacterial spot - high-confidence detection",
       },
       {
         photo: "/images/tomato_leaf_sample_4.jpg",
         result: "/images/602953915-ebc9887f-ab61-4e88-9870-f8ac6a0f13.png",
-        caption: "Healthy leaf — maintenance-oriented verdict",
+        caption: "Healthy leaf - maintenance-oriented verdict",
       },
     ],
     category: "AI & Computer Vision",
@@ -236,7 +236,7 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
     featured: true,
     image: "/images/tomato_leaf_sample_2.png",
     tech: ["EfficientNetB0", "TensorFlow", "Keras", "FastAPI", "React.js", "Flutter", "Firebase", "Python"],
-    github: "https://github.com/PabasaraIlankoon/agrovision-tomato-ai",
+    github: "https://github.com/PabasaraIlankoon/agrovision-ai",
     highlight: "Supports 10 disease classes with treatment + prevention guidance",
   
   },
@@ -245,12 +245,12 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
     title: "Digital Comm Simulator",
     subtitle: "DSP & Modulation Simulator",
     description:
-      "Browser-based simulator for digital modulation, noisy channels, and BER analysis — no MATLAB licence required.",
+      "Browser-based simulator for digital modulation, noisy channels, and BER analysis - no MATLAB licence required.",
     longDescription:
       "A communication systems laboratory that runs entirely in the browser. Built for coursework, research, and self-study in digital communications, the simulator lets users configure modulation schemes, channel conditions, and noise levels, then see the result instantly.\n\n" +
-      "Four modulation schemes are supported: ASK, QPSK, 16-QAM, and OFDM for multi-carrier scenarios. Each scheme lives in its own dedicated Python module — ask.py, qpsk.py, qam.py, ofdm.py — keeping the simulation logic modular and easy to extend.\n\n" +
+      "Four modulation schemes are supported: ASK, QPSK, 16-QAM, and OFDM for multi-carrier scenarios. Each scheme lives in its own dedicated Python module - ask.py, qpsk.py, qam.py, ofdm.py - keeping the simulation logic modular and easy to extend.\n\n" +
       "An AWGN channel model lets users dial in a target SNR and watch how each scheme degrades under noise. The BER vs SNR module runs the full simulation across a range of noise levels and renders the performance curve in real time using SciPy.\n\n" +
-      "All signal visualisations — time-domain waveforms, constellation diagrams, eye diagrams, and power spectral density plots — are rendered with Plotly, so results can be zoomed, panned, and exported directly from the browser.\n\n" +
+      "All signal visualisations - time-domain waveforms, constellation diagrams, eye diagrams, and power spectral density plots - are rendered with Plotly, so results can be zoomed, panned, and exported directly from the browser.\n\n" +
       "A Flask backend handles the heavy simulation work, keeping the frontend responsive even for larger OFDM configurations. A parallel Kivy-based mobile app, packaged with Buildozer, brings the same simulation engine to Android as a standalone APK.",
     highlights: [
       "ASK, QPSK, 16-QAM and OFDM modulation schemes",
@@ -282,11 +282,11 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
     title: "Mars Robot",
     subtitle: "Embedded Autonomous System",
     description:
-      "Autonomous robot built for the Mars Robot Challenge — grid navigation, obstacle avoidance, ramp climbing, and barcode-guided sorting, all running on a single ESP32-S3.",
+      "Autonomous robot built for the Mars Robot Challenge - grid navigation, obstacle avoidance, ramp climbing, and barcode-guided sorting, all running on a single ESP32-S3.",
     longDescription:
       "Built for the Mars Robot Challenge: Greenhouse Survival Edition, adapted from SLRC 2025 (University Category) under the ET 2223 Embedded Systems course at KDU, this robot simulates greenhouse operations on Mars from start to finish, with zero human input once it starts.\n\n" +
       "The challenge is split into three tasks. In Plantation, the robot navigates a 6×4 grid, identifies green-sticker plant cells, and collects yellow and white ping-pong-ball potatoes. In Muddy Road & Ramp, it avoids randomly placed obstacles and climbs a 20-degree ramp. In Collection & Sort, it scans a binary barcode and sorts good and bad potatoes into the correct baskets.\n\n" +
-      "An ESP32-S3 runs the full state machine — IDLE through three tasks to DONE — fusing data from an 8-channel IR array, three HC-SR04 ultrasonic sensors, a TCS34725 colour sensor, and an MPU6050 IMU. A TB6612FNG H-bridge drives the wheels with encoder feedback for accurate odometry, while four MG90S servos operate a 2-degree-of-freedom arm and a sorting gate.\n\n" +
+      "An ESP32-S3 runs the full state machine - IDLE through three tasks to DONE - fusing data from an 8-channel IR array, three HC-SR04 ultrasonic sensors, a TCS34725 colour sensor, and an MPU6050 IMU. A TB6612FNG H-bridge drives the wheels with encoder feedback for accurate odometry, while four MG90S servos operate a 2-degree-of-freedom arm and a sorting gate.\n\n" +
       "The chassis is laser-cut acrylic, designed in SolidWorks, with a 3D-printed PLA arm. A 2S LiPo battery regulated down to 5V keeps the whole system self-contained, staying within the competition's 24V supply limit.\n\n" +
       "Line following runs on a tuned PID loop reading the IR array. The barcode decoder reads stripe widths to recover a binary value. Ramp detection uses MPU6050 pitch to trigger controlled climbing and descent.",
     highlights: [
@@ -320,9 +320,9 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
     title: "ROSCO'25 Robot",
     subtitle: "Embedded Navigation System",
     description:
-      "LineStorm — a three-mode autonomous robot built for ROSCO'25, combining line following, wall following, and ramp navigation on one ESP32-S3 platform.",
+      "LineStorm - a three-mode autonomous robot built for ROSCO'25, combining line following, wall following, and ramp navigation on one ESP32-S3 platform.",
     longDescription:
-      "Built for the ROSCO'25 inter-university robotics competition, organised by the Institution of Mechanical Engineers Student Chapter and the Electronics, Robotics and Innovation Club of KDU, this robot — codenamed LineStorm — had to master three distinct navigation modes under time pressure.\n\n" +
+      "Built for the ROSCO'25 inter-university robotics competition, organised by the Institution of Mechanical Engineers Student Chapter and the Electronics, Robotics and Innovation Club of KDU, this robot — codenamed LineStorm - had to master three distinct navigation modes under time pressure.\n\n" +
       "Line following uses an 8-element IR array with a PID controller for smooth, accurate path tracking on a marked track. Wall following relies on a VL53L0X time-of-flight sensor for millimetre-accurate distance sensing through a corridor maze. Ramp navigation uses an MPU6050 IMU to detect gradient changes and adjust motor power so the robot neither stalls nor tips.\n\n" +
       "An ESP32-S3 runs the full finite state machine, with a TB6612FNG driver controlling N20 geared DC motors. Encoder feedback on both wheels enables accurate distance measurement and differential steering through tight corners.\n\n" +
       "The chassis is laser-cut acrylic with custom 3D-printed motor mounts and sensor brackets, keeping the platform light, rigid, and easy to repair between competition runs.\n\n" +
@@ -379,7 +379,7 @@ export const skills: Skill[] = [
     label: "Languages",
     title: "Programming",
     description:
-      "Core languages I use to bring projects from prototype to working system — from embedded firmware to web interfaces.",
+      "Core languages I use to bring projects from prototype to working system - from embedded firmware to web interfaces.",
     context: "Across all projects",
     tools: ["Python", "C", "C++", "Arduino", "JavaScript"],
     extra: [],
@@ -389,7 +389,7 @@ export const skills: Skill[] = [
     label: "Main focus",
     title: "AI/ML & Vision",
     description:
-      "Most of my recent work involves deploying deep learning models at the edge — real-time object detection, classification, and sensor-driven intelligence on constrained hardware.",
+      "Most of my recent work involves deploying deep learning models at the edge - real-time object detection, classification, and sensor-driven intelligence on constrained hardware.",
     context: "In Elevision & AgroVision",
     tools: ["YOLOv8", "OpenCV", "TensorFlow", "Keras", "MobileNetV2", "CNN"],
     extra: [
@@ -408,7 +408,7 @@ export const skills: Skill[] = [
     label: "Hardware layer",
     title: "Embedded Systems",
     description:
-      "Comfortable moving down to the hardware layer — sensor integration, motor control, PCB design, and debugging circuits under real-world constraints.",
+      "Comfortable moving down to the hardware layer - sensor integration, motor control, PCB design, and debugging circuits under real-world constraints.",
     context: "In robotics & IoT builds",
     tools: ["ESP32", "ESP32-S3", "ESP32-C3-Mini", "STM32", "Raspberry Pi", "Arduino"],
     extra: ["Sensor Integration", "Motor Control", "Motor Drivers", "PCB Design", "Circuit Debugging", "Power Systems"],
@@ -418,7 +418,7 @@ export const skills: Skill[] = [
     label: "Mechanical & control",
     title: "Robotics & Autonomy",
     description:
-      "End-to-end robot development — from navigation algorithms and sensor fusion to PCB design and real-time control systems.",
+      "End-to-end robot development from navigation algorithms and sensor fusion to PCB design and real-time control systems.",
     context: "In Mars Robot & ROSCO'25",
     tools: ["Autonomous Navigation", "Path Planning", "Sensor Fusion", "PID Control"],
     extra: ["Maze Solving Robots", "Obstacle Detection", "Real-Time Embedded Systems", "PCB Designing", "Robot Control Systems"],
@@ -462,7 +462,7 @@ export const skills: Skill[] = [
     context: "Preprint manuscript under preparation",
     tools: ["YOLOv8", "Computer Vision", "Edge AI", "Raspberry Pi"],
     extra: ["Elephant Detection", "Railway Safety", "Firebase", "Flutter"],
-    badge: "Preprint Manuscript — Under Preparation",
+    badge: "Preprint Manuscript - Under Preparation",
     points: [
       "Researching an AI-based railway safety system for real-time elephant detection and early warning.",
       "Developing YOLOv8-based computer vision models for elephant detection in railway environments.",
@@ -484,7 +484,7 @@ export type Achievement = {
 
 export const achievements: Achievement[] = [
   {
-    title: "Champions — Target Sprint Shooting Competition",
+    title: "Champions | Target Sprint Shooting Competition",
     org: "KDU",
     year: "2025",
     type: "Winner",
@@ -493,7 +493,7 @@ export const achievements: Achievement[] = [
     image: "/images/Target sprint.jpg",
   },
   {
-    title: "KDU Colours — Air Rifle",
+    title: "KDU Colours | Air Rifle",
     org: "KDU",
     year: "2025",
     type: "Award",
@@ -502,7 +502,7 @@ export const achievements: Achievement[] = [
      image: [ "/images/colours.jpg","/images/colours image.jpg"],
   },
   {
-    title: "Precision Shooter — Open Air Gun Championship",
+    title: "Precision Shooter | Open Air Gun Championship",
     org: "Magam Sports Shooting Club",
     year: "2025",
     type: "Winner",
@@ -511,7 +511,7 @@ export const achievements: Achievement[] = [
     image: "/images/MSSC.jpg",
   },
   {
-    title: "TECHXHiBiT 2.0 — Hardware & Software Exhibition",
+    title: "TECHXHiBiT 2.0 | Hardware & Software Exhibition",
     org: "BCS Student Chapter / KDU",
     year: "2026",
     type: "Participant",
@@ -520,7 +520,7 @@ export const achievements: Achievement[] = [
     image: "/images/texhibit.jpg",
   },
   {
-    title: "ROSCO '25 — Robotics Showdown Competition",
+    title: "ROSCO '25 | Robotics Showdown Competition",
     org: "IMechE / ERIC / KDU",
     year: "2025",
     type: "Participant",
@@ -541,7 +541,7 @@ export type Certification = {
 
 export const certifications: Certification[] = [
   {
-    title: "AI/ML Engineer — Stage 1",
+    title: "AI/ML Engineer - Stage 1",
     org: "SLIIT",
     year: "2026",
     description:
@@ -550,7 +550,7 @@ export const certifications: Certification[] = [
     credentialUrl: "https://code.sliit.org/certificates/cnyrcodaxm",
   },
   {
-    title: "AI/ML Engineer — Stage 2",
+    title: "AI/ML Engineer - Stage 2",
     org: "SLIIT",
     year: "2026",
     description:

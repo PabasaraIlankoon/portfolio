@@ -16,8 +16,8 @@ export const personalInfo = {
   affiliation: "IET Member",
   cgpa: "In Progress",
   stats: [
-    { value: "6+", label: "Projects" },
-    { value: "3", label: "Certifications" },
+    { value: "10+", label: "Projects" },
+    { value: "4", label: "Certifications" },
     { value: "2", label: "Degrees" },
   ],
 };

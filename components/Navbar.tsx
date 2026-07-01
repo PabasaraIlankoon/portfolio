@@ -52,8 +52,8 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <button onClick={() => scrollTo("#home")} className="flex items-center gap-3">
-            <span className="w-8 h-8 rounded-lg bg-accent-green/15 border border-accent-green/30 flex items-center justify-center text-accent-green font-bold text-sm">
+          <button onClick={() => scrollTo("#home")} className="flex items-center gap-3 group">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent via-accent-light to-accent-green flex items-center justify-center text-bg font-bold text-sm shadow-[0_6px_18px_-6px_rgba(108,99,255,0.6)] group-hover:scale-105 transition-transform duration-200">
               {initial}
             </span>
             <span className="font-semibold text-text text-base">{personalInfo.name}</span>
@@ -64,9 +64,7 @@ export default function Navbar() {
               <li key={item.href}>
                 <button
                   onClick={() => scrollTo(item.href)}
-                  className={`text-xs font-medium uppercase tracking-widest transition-colors ${
-                    activeSection === item.href.replace("#", "") ? "text-text" : "text-muted hover:text-text"
-                  }`}
+                  className={`nav-link ${activeSection === item.href.replace("#", "") ? "active" : ""} text-xs font-medium uppercase tracking-widest`}
                 >
                   {item.label}
                 </button>
@@ -75,13 +73,18 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden md:flex items-center gap-4">
-            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-text transition-colors">
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent-light transition-colors">
               <Github size={18} />
             </a>
-            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-text transition-colors">
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent-light transition-colors">
               <Linkedin size={18} />
             </a>
-            <a href={personalInfo.resumeUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm px-4 py-2 bg-text text-bg rounded-full font-medium hover:opacity-90 transition-all duration-200">
+            <a
+              href={personalInfo.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm px-4 py-2 rounded-full font-medium text-bg bg-gradient-to-r from-accent via-accent-light to-accent-green bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-[0_10px_24px_-10px_rgba(108,99,255,0.6)]"
+            >
               <Download size={14} />
               Resume
             </a>
@@ -103,19 +106,23 @@ export default function Navbar() {
             <button
               key={item.href}
               onClick={() => scrollTo(item.href)}
-              className="text-2xl font-semibold text-muted hover:text-text transition-colors"
+              className="text-2xl font-semibold text-muted hover:text-accent-light transition-colors"
             >
               {item.label}
             </button>
           ))}
           <div className="flex items-center gap-6 mt-4">
-            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-text">
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent-light transition-colors">
               <Github size={22} />
             </a>
-            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-text">
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent-light transition-colors">
               <Linkedin size={22} />
             </a>
-            <a href={personalInfo.resumeUrl} target="_blank" className="flex items-center gap-1.5 text-sm px-4 py-2 bg-text text-bg rounded-full font-medium">
+            <a
+              href={personalInfo.resumeUrl}
+              target="_blank"
+              className="flex items-center gap-1.5 text-sm px-4 py-2 rounded-full font-medium text-bg bg-gradient-to-r from-accent via-accent-light to-accent-green"
+            >
               <Download size={14} />
               Resume
             </a>

@@ -35,6 +35,14 @@ export default function Hero() {
               </span>
             ))}
           </h1>
+            {/* Live typewriter role line, echoing the badge above */}
+          <div
+            className={`flex items-center gap-1.5 mb-5 h-6 transition-all duration-700 delay-[250ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          >
+            <span className="text-accent-light font-mono text-sm">$</span>
+            <span className="text-muted font-mono text-sm">{typedRole}</span>
+            <span className="typing-caret text-accent-light" />
+          </div>
 
           <p className="text-muted text-base leading-relaxed mb-3 max-w-lg">
             Building intelligent systems at the intersection of{" "}
@@ -73,7 +81,7 @@ export default function Hero() {
         </div>
 
         <div className="relative hidden md:block h-screen self-stretch -mr-6 md:-mr-[max(0px,calc((100vw-72rem)/2))]">
-          <div className="absolute inset-0 right-0 left-[-10%]">
+          <div className="absolute inset-0 right-0 left-[-5%]">
             <Image src={personalInfo.photo} alt={personalInfo.name} fill className="object-cover object-top" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/10 to-transparent" />
           </div>

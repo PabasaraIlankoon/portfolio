@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Github, ExternalLink, ArrowRight } from "lucide-react";
-import { projects, projectCategories, type Project } from "@/lib/data";
+import { projects, projectCategories, type Project } from "../../lib/data";
 
 function StatusBadge({ status }: { status: Project["status"] }) {
   const map = {
@@ -11,7 +11,7 @@ function StatusBadge({ status }: { status: Project["status"] }) {
     ongoing: { label: "Ongoing", color: "text-amber-400 bg-amber-400/10 border-amber-400/25" },
     research: { label: "Research", color: "text-accent-light bg-accent/10 border-accent/25" },
   };
-  const s = map[status];
+  const s = map[status as keyof typeof map];
   return (
     <span className={`text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full border ${s.color}`}>
       {s.label}
@@ -25,7 +25,7 @@ export default function Projects() {
   const filtered =
     activeFilter === "All Projects"
       ? projects
-      : projects.filter((p) => p.category === activeFilter);
+      : projects.filter((p: Project) => p.category === activeFilter);
 
   return (
     <section id="projects" className="py-14 px-6 bg-surface">
@@ -40,7 +40,7 @@ export default function Projects() {
 
         {/* Filter tabs */}
         <div className="flex flex-wrap gap-2 mb-12">
-          {projectCategories.map((cat) => (
+          {projectCategories.map((cat: string) => (
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
@@ -50,10 +50,10 @@ export default function Projects() {
                   : "bg-card border border-border text-muted hover:border-accent/40 hover:text-accent-light"
               }`}
             >
-              {cat}
+                {cat}
               {cat !== "All Projects" && (
                 <span className="ml-1.5 text-xs opacity-60">
-                  ({projects.filter((p) => p.category === cat).length})
+                  ({projects.filter((p: Project) => p.category === cat).length})
                 </span>
               )}
             </button>
@@ -62,7 +62,7 @@ export default function Projects() {
 
         {/* Uniform project grid — every card same size/shape */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((project) => (
+          {filtered.map((project: Project) => (
             <Link
               key={project.id}
               href={`/projects/${project.id}`}
@@ -122,7 +122,7 @@ export default function Projects() {
 
                 {/* Tech pills */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.tech.slice(0, 4).map((t) => (
+                  {project.tech.slice(0, 4).map((t: string) => (
                     <span key={t} className="pill">{t}</span>
                   ))}
                   {project.tech.length > 4 && (

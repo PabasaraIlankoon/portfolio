@@ -28,7 +28,7 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto">
         <div className="section-label mb-0">Contact</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-          Get In Touch
+          Get In <span className="gradient-text-animated heading-glow-pulse">Touch</span>
         </h2>
         <p className="text-muted max-w-xl mb-16">
           Open to internships, research collaborations, and engineering-focused conversations.
@@ -45,13 +45,13 @@ export default function Contact() {
 
             <div className="space-y-4 mb-10">
               <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-3 text-muted hover:text-text transition-colors group">
-                <div className="w-9 h-9 rounded-lg bg-card border border-border flex items-center justify-center group-hover:border-accent/40 transition-colors">
+                <div className="w-9 h-9 rounded-lg bg-card border border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all">
                   <Mail size={16} className="text-accent" />
                 </div>
                 <span className="text-sm">{personalInfo.email}</span>
               </a>
               <a href={`tel:${personalInfo.phone}`} className="flex items-center gap-3 text-muted hover:text-text transition-colors group">
-                <div className="w-9 h-9 rounded-lg bg-card border border-border flex items-center justify-center group-hover:border-accent/40 transition-colors">
+                <div className="w-9 h-9 rounded-lg bg-card border border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all">
                   <Phone size={16} className="text-accent" />
                 </div>
                 <span className="text-sm">{personalInfo.phone}</span>
@@ -76,7 +76,7 @@ export default function Contact() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 bg-card border border-border rounded-xl text-muted hover:border-accent/40 hover:text-accent-light transition-all text-sm"
+                  className="flex items-center gap-2 px-4 py-2.5 bg-card border border-border rounded-xl text-muted hover:border-accent/40 hover:text-accent-light hover:-translate-y-0.5 transition-all text-sm"
                 >
                   {s.icon}
                   {s.label}
@@ -97,7 +97,7 @@ export default function Contact() {
                 placeholder="Your name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full bg-bg border border-border rounded-xl px-4 py-3 text-text text-sm placeholder:text-subtle focus:outline-none focus:border-accent transition-colors"
+                className="input-glow w-full bg-bg border border-border rounded-xl px-4 py-3 text-text text-sm placeholder:text-subtle focus:outline-none focus:border-accent transition-colors"
                 required
               />
             </div>
@@ -108,7 +108,7 @@ export default function Contact() {
                 placeholder="your@email.com"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full bg-bg border border-border rounded-xl px-4 py-3 text-text text-sm placeholder:text-subtle focus:outline-none focus:border-accent transition-colors"
+                className="input-glow w-full bg-bg border border-border rounded-xl px-4 py-3 text-text text-sm placeholder:text-subtle focus:outline-none focus:border-accent transition-colors"
                 required
               />
             </div>
@@ -119,13 +119,13 @@ export default function Contact() {
                 placeholder="Tell me about your project or opportunity..."
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full bg-bg border border-border rounded-xl px-4 py-3 text-text text-sm placeholder:text-subtle focus:outline-none focus:border-accent transition-colors resize-none"
+                className="input-glow w-full bg-bg border border-border rounded-xl px-4 py-3 text-text text-sm placeholder:text-subtle focus:outline-none focus:border-accent transition-colors resize-none"
                 required
               />
             </div>
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 bg-accent hover:bg-accent-light text-white font-semibold py-3 rounded-xl transition-all duration-200 text-sm hover:-translate-y-0.5"
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-accent via-accent-light to-accent-green bg-[length:200%_auto] hover:bg-right text-white font-semibold py-3 rounded-xl transition-all duration-500 text-sm hover:-translate-y-0.5 shadow-[0_14px_34px_-16px_rgba(108,99,255,0.7)]"
             >
               <Send size={15} />
               Send Message

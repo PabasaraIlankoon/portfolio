@@ -1,9 +1,44 @@
 "use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Github, Linkedin, ArrowDown } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 
+/** Cycles through personalInfo.roles with a typewriter effect. */
+function useTypewriter(words: string[], typingSpeed = 55, pauseMs = 1800, deletingSpeed = 30) {
+  const [text, setText] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    if (!words.length) return;
+    const current = words[wordIndex % words.length];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!deleting && text === current) {
+      timeout = setTimeout(() => setDeleting(true), pauseMs);
+    } else if (deleting && text === "") {
+      setDeleting(false);
+      setWordIndex((i) => (i + 1) % words.length);
+    } else {
+      timeout = setTimeout(() => {
+        setText((t) => (deleting ? current.slice(0, t.length - 1) : current.slice(0, t.length + 1)));
+      }, deleting ? deletingSpeed : typingSpeed);
+    }
+    return () => clearTimeout(timeout);
+  }, [text, deleting, wordIndex, words, typingSpeed, pauseMs, deletingSpeed]);
+
+  return text;
+}
+
 export default function Hero() {
+  const [mounted, setMounted] = useState(false);
+  const typedRole = useTypewriter(personalInfo.roles);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const scrollTo = (href: string) => {
     const el = document.querySelector(href);
     if (el) window.scrollTo({ top: (el as HTMLElement).offsetTop - 80, behavior: "smooth" });
@@ -35,7 +70,8 @@ export default function Hero() {
               </span>
             ))}
           </h1>
-            {/* Live typewriter role line, echoing the badge above */}
+
+          {/* Live typewriter role line, echoing the badge above */}
           <div
             className={`flex items-center gap-1.5 mb-5 h-6 transition-all duration-700 delay-[250ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >

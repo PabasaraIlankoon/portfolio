@@ -26,6 +26,7 @@ import { LankaMeshDetail } from "@/components/projects/LankaMeshDetail";
 import { DigitalCommDetail } from "@/components/projects/DigitalCommDetail";
 import { MarsRobotDetail } from "@/components/projects/MarsRobotdetail";
 import { RoscoDetail } from "@/components/projects/RoscoDetail";
+import { FeelFillDetail } from "@/components/projects/FeelFillDetail";
 
 // ─────────────────────────────────────────────
 // Types
@@ -50,7 +51,7 @@ function StatusBadge({ status }: { status: Status }) {
 }
 
 // ─────────────────────────────────────────────
-// Image — object-cover (leaf photos, hero)
+// Image - object-cover (leaf photos, hero)
 // ─────────────────────────────────────────────
 function ProjectImage({
   src,
@@ -86,7 +87,7 @@ function ProjectImage({
 }
 
 // ─────────────────────────────────────────────
-// Image — object-contain (app screenshots, full image visible)
+// Image - object-contain (app screenshots, full image visible)
 // ─────────────────────────────────────────────
 function ProjectImageContain({
   src,
@@ -274,10 +275,10 @@ function ComparisonTable({
             </div>
             <div className="pl-1 pt-1">
               <div className="text-sm font-semibold text-gray-800 mb-1 leading-snug">
-                {c.caption.split(" — ")[0]}
+                {c.caption.split(" - ")[0]}
               </div>
               <div className="text-xs text-gray-500 leading-relaxed">
-                {c.caption.split(" — ")[1] ?? ""}
+                {c.caption.split(" - ")[1] ?? ""}
               </div>
               <div className="mt-3 flex items-center gap-1.5">
                 <span className={`w-1.5 h-1.5 rounded-full ${
@@ -301,13 +302,13 @@ function ComparisonTable({
 const AGROVISION_HIGHLIGHTS = [
   {
     icon: "🌿",
-    title: "Upload a leaf photo — get an instant diagnosis",
+    title: "Upload a leaf photo - get an instant diagnosis",
     body: "Point your phone at any tomato leaf and receive a clear result within seconds: what disease was found, how confident the system is, and what it means for your crop.",
   },
   {
     icon: "🔬",
     title: "Recognises 10 conditions, including a healthy class",
-    body: "The system is trained on bacterial, fungal, viral, and pest-related leaf conditions — and can also confidently confirm that a leaf is healthy, so you never act on a false alarm.",
+    body: "The system is trained on bacterial, fungal, viral, and pest-related leaf conditions - and can also confidently confirm that a leaf is healthy, so you never act on a false alarm.",
   },
   {
     icon: "💊",
@@ -317,7 +318,7 @@ const AGROVISION_HIGHLIGHTS = [
   {
     icon: "📱",
     title: "Works offline in the field",
-    body: "The mobile app runs entirely on your device — no internet connection needed. Useful in remote farmland where connectivity is unreliable.",
+    body: "The mobile app runs entirely on your device - no internet connection needed. Useful in remote farmland where connectivity is unreliable.",
   },
   {
     icon: "🤝",
@@ -354,11 +355,12 @@ export default function ProjectDetailClient({ id }: { id: string }) {
   const isDigitalComm = project.id === 4;
   const isMarsRobot = project.id === 5;
   const isRosco = project.id === 6;
+  const isFeelFill = project.id === 7;
 
-  // Projects with a fully custom detail component — skip the generic
+  // Projects with a fully custom detail component - skip the generic
   // "About this project" + highlights block entirely for these.
   const hasCustomDetail =
-    isElevision || isLankaMesh || isDigitalComm || isMarsRobot || isRosco;
+    isElevision || isLankaMesh || isDigitalComm || isMarsRobot || isRosco || isFeelFill;
 
   const comparisonImages: string[] = project.comparisons
     ? project.comparisons.flatMap((c) => [c.photo, c.result])
@@ -465,10 +467,11 @@ export default function ProjectDetailClient({ id }: { id: string }) {
               {isDigitalComm && <DigitalCommDetail />}
               {isMarsRobot && <MarsRobotDetail />}
               {isRosco && <RoscoDetail />}
+              {isFeelFill && <FeelFillDetail />}
 
               {!hasCustomDetail && (
                 <>
-                  {/* Description — plain text only, no inline images */}
+                  {/* Description - plain text only, no inline images */}
                   <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
                     <p className="text-[11px] font-mono font-semibold text-gray-400 uppercase tracking-widest mb-5">
                       About this project

@@ -1,0 +1,94 @@
+"use client";
+import Image from "next/image";
+import { Github, Linkedin, ArrowDown } from "lucide-react";
+import { personalInfo } from "@/lib/data";
+
+export default function Hero() {
+  const scrollTo = (href: string) => {
+    const el = document.querySelector(href);
+    if (el) window.scrollTo({ top: (el as HTMLElement).offsetTop - 80, behavior: "smooth" });
+  };
+
+  return (
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-bg">
+      <div className="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-16 items-center relative z-10">
+
+        <div className="pt-28 md:pt-0">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-6 h-px bg-accent-green" />
+            <span className="text-accent-green text-xs font-medium uppercase tracking-widest">
+              {personalInfo.roles[0]}
+            </span>
+            <span className="w-1 h-1 rounded-full bg-subtle" />
+            <span className="text-subtle text-xs font-medium uppercase tracking-widest">
+              {personalInfo.roles[1]}
+            </span>
+          </div>
+
+          <h1 className="text-[clamp(2.6rem,6vw,5rem)] font-bold leading-[1.0] tracking-[-0.04em] mb-6">
+            {personalInfo.tagline.map((line, i) => (
+              <span key={i} className={`block ${i === 1 ? "text-muted" : "text-text"}`}>
+                {line}
+                {i === personalInfo.tagline.length - 1 && (
+                  <span className="inline-block w-2 h-2 rounded-full bg-accent-green ml-2 align-middle" />
+                )}
+              </span>
+            ))}
+          </h1>
+
+          <p className="text-muted text-base leading-relaxed mb-3 max-w-lg">
+            Building intelligent systems at the intersection of{" "}
+            <strong className="text-text font-semibold">embedded hardware</strong> and{" "}
+            <strong className="text-text font-semibold">machine intelligence</strong>. Currently
+            pursuing Electronic and Telecommunication Engineering at{" "}
+            <a href="https://www.kdu.ac.lk" target="_blank" rel="noopener noreferrer" className="underline decoration-subtle hover:decoration-accent-light text-text">
+              KDU
+            </a>{" "}
+            while researching{" "}
+            <a href="#projects" onClick={(e) => { e.preventDefault(); scrollTo("#projects"); }} className="underline decoration-subtle hover:decoration-accent-light text-text">
+              AI-based wildlife safety systems
+            </a>
+            .
+          </p>
+
+          <p className="text-subtle text-xs font-mono mb-10 whitespace-pre-line leading-relaxed">
+            {personalInfo.bio2}
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <button onClick={() => scrollTo("#projects")} className="px-6 py-3 rounded-full bg-text text-bg font-semibold text-sm hover:opacity-90 transition-all duration-200">
+              View Work
+            </button>
+            <a href={personalInfo.resumeUrl} target="_blank" className="px-6 py-3 rounded-full border border-border text-muted font-semibold text-sm hover:border-accent hover:text-accent-light transition-all duration-200">
+              Resume
+            </a>
+            <span className="w-px h-6 bg-border" />
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-text transition-colors">
+              <Github size={20} />
+            </a>
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-text transition-colors">
+              <Linkedin size={20} />
+            </a>
+          </div>
+        </div>
+
+        <div className="relative hidden md:block h-screen self-stretch -mr-6 md:-mr-[max(0px,calc((100vw-72rem)/2))]">
+          <div className="absolute inset-0 right-0 left-[-10%]">
+            <Image src={personalInfo.photo} alt={personalInfo.name} fill className="object-cover object-top" priority />
+            <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/10 to-transparent" />
+          </div>
+        </div>
+
+        <div className="md:hidden relative w-full h-80 rounded-2xl overflow-hidden">
+          <Image src={personalInfo.photo} alt={personalInfo.name} fill className="object-cover object-top" priority />
+        </div>
+
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-subtle z-10">
+        <span className="text-xs font-mono tracking-widest uppercase">Scroll</span>
+        <ArrowDown size={16} className="animate-bounce" />
+      </div>
+    </section>
+  );
+}

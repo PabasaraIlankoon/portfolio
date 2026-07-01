@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Github, Linkedin, ArrowDown } from "lucide-react";
 import { personalInfo } from "@/lib/data";
@@ -34,9 +34,26 @@ function useTypewriter(words: string[], typingSpeed = 55, pauseMs = 1800, deleti
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const typedRole = useTypewriter(personalInfo.roles);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  // Cursor-reactive ambient glow — a soft light that follows the pointer
+  // across the hero section, layered behind the content.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const handleMove = (e: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      section.style.setProperty("--mouse-x", `${x}%`);
+      section.style.setProperty("--mouse-y", `${y}%`);
+    };
+    section.addEventListener("mousemove", handleMove);
+    return () => section.removeEventListener("mousemove", handleMove);
   }, []);
 
   const scrollTo = (href: string) => {
@@ -45,7 +62,15 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-bg">
+    <section
+      id="home"
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center overflow-hidden bg-bg"
+      style={{
+        backgroundImage:
+          "radial-gradient(420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(108,99,255,0.14), transparent 65%)",
+      }}
+    >
       <div className="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-16 items-center relative z-10">
 
         <div className="pt-28 md:pt-0">
@@ -61,14 +86,22 @@ export default function Hero() {
           </div>
 
           <h1 className="text-[clamp(2.6rem,6vw,5rem)] font-bold leading-[1.0] tracking-[-0.04em] mb-6">
-            {personalInfo.tagline.map((line, i) => (
-              <span key={i} className={`block ${i === 1 ? "text-muted" : "text-text"}`}>
-                {line}
-                {i === personalInfo.tagline.length - 1 && (
-                  <span className="inline-block w-2 h-2 rounded-full bg-accent-green ml-2 align-middle" />
-                )}
-              </span>
-            ))}
+            {personalInfo.tagline.map((line, i) => {
+              const isLast = i === personalInfo.tagline.length - 1;
+              return (
+                <span
+                  key={i}
+                  className={`block ${
+                    isLast ? "gradient-text-animated heading-glow-pulse" : i === 1 ? "text-muted" : "text-text"
+                  }`}
+                >
+                  {line}
+                  {isLast && (
+                    <span className="inline-block w-2 h-2 rounded-full bg-accent-green ml-2 align-middle animate-pulse2" />
+                  )}
+                </span>
+              );
+            })}
           </h1>
 
           {/* Live typewriter role line, echoing the badge above */}
@@ -100,17 +133,24 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
-            <button onClick={() => scrollTo("#projects")} className="px-6 py-3 rounded-full bg-text text-bg font-semibold text-sm hover:opacity-90 transition-all duration-200">
+            <button
+              onClick={() => scrollTo("#projects")}
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-accent via-accent-light to-accent-green bg-[length:200%_auto] text-bg font-semibold text-sm hover:-translate-y-0.5 hover:bg-right shadow-[0_14px_34px_-16px_rgba(108,99,255,0.7)] transition-all duration-500"
+            >
               View Work
             </button>
-            <a href={personalInfo.resumeUrl} target="_blank" className="px-6 py-3 rounded-full border border-border text-muted font-semibold text-sm hover:border-accent hover:text-accent-light transition-all duration-200">
+            <a
+              href={personalInfo.resumeUrl}
+              target="_blank"
+              className="px-6 py-3 rounded-full border border-border text-muted font-semibold text-sm hover:border-accent hover:text-accent-light hover:-translate-y-0.5 transition-all duration-200"
+            >
               Resume
             </a>
             <span className="w-px h-6 bg-border" />
-            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-text transition-colors">
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-accent-light hover:-translate-y-0.5 transition-all duration-200 inline-block">
               <Github size={20} />
             </a>
-            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-text transition-colors">
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-accent-light hover:-translate-y-0.5 transition-all duration-200 inline-block">
               <Linkedin size={20} />
             </a>
           </div>
@@ -129,7 +169,7 @@ export default function Hero() {
 
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-subtle z-10">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-subtle z-10 hover:text-accent-light transition-colors">
         <span className="text-xs font-mono tracking-widest uppercase">Scroll</span>
         <ArrowDown size={16} className="animate-bounce" />
       </div>

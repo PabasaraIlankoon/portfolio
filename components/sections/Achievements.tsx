@@ -115,7 +115,9 @@ export default function Achievements() {
       <section id="achievements" className="pt-8 pb-14 px-4 md:px-6 bg-surface">
         <div className="max-w-6xl mx-auto">
           <div className="section-label mb-0">Recognition</div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Achievements</h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            <span className="gradient-text-animated heading-glow-pulse">Achievements</span>
+          </h2>
           <p className="text-muted max-w-2xl mb-10">
             Competition results and credentials across engineering, AI, and sport.
           </p>
@@ -123,7 +125,7 @@ export default function Achievements() {
           {/* ── Carousel ── */}
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-px bg-accent" />
+              <div className="w-8 h-px bg-gradient-to-r from-accent to-accent-green" />
               <span className="text-sm font-semibold text-text">Selected highlights</span>
             </div>
 
@@ -211,7 +213,7 @@ export default function Achievements() {
                         key={i}
                         onClick={() => handleManualNav(() => goTo(i))}
                         className={`h-1.5 rounded-full transition-all duration-500 ${
-                          i === current ? "bg-accent w-6" : "bg-border w-1.5 hover:bg-muted"
+                          i === current ? "bg-gradient-to-r from-accent to-accent-green w-6" : "bg-border w-1.5 hover:bg-muted"
                         }`}
                       />
                     ))}
@@ -364,7 +366,7 @@ export default function Achievements() {
                       key={i}
                       onClick={() => handleManualNav(() => goTo(i))}
                       className={`h-1.5 rounded-full transition-all duration-500 ${
-                        i === current ? "bg-accent w-6" : "bg-border w-1.5 hover:bg-muted"
+                        i === current ? "bg-gradient-to-r from-accent to-accent-green w-6" : "bg-border w-1.5 hover:bg-muted"
                       }`}
                     />
                   ))}
@@ -376,7 +378,7 @@ export default function Achievements() {
           {/* ── Certifications ── */}
           <div className="mt-16">
             <div className="flex items-center gap-2 mb-8">
-              <div className="w-8 h-px bg-accent" />
+              <div className="w-8 h-px bg-gradient-to-r from-accent to-accent-green" />
               <span className="text-sm font-semibold text-text">Certifications</span>
             </div>
 
@@ -384,7 +386,7 @@ export default function Achievements() {
               {certifications.map((c, i) => (
                 <div key={i} className="flex gap-4 md:gap-5 items-start">
                   <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-8 h-8 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center mt-0.5">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent/20 to-accent-green/20 border border-accent/30 flex items-center justify-center mt-0.5">
                       <Award size={14} className="text-accent-light" />
                     </div>
                     {i < certifications.length - 1 && (
@@ -426,7 +428,7 @@ export default function Achievements() {
                         {c.image && (
                           <button
                             onClick={() => setLightbox(c.image!)}
-                            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted hover:text-text transition-colors"
+                            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted hover:text-accent-light transition-colors"
                           >
                             View certificate <ZoomIn size={11} />
                           </button>

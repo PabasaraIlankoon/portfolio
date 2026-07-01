@@ -351,6 +351,37 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
     tech: ["ESP32-S3", "VL53L0X", "IR Sensors", "MPU6050", "TB6612FNG", "SolidWorks", "PlatformIO"],
     github: "https://github.com/PabasaraIlankoon/autonomous-robot-rosco25",
   },
+  {
+    id: 7,
+    title: "FeelFill",
+    subtitle: "Capacitive Liquid-Level Sensing for the Visually Impaired",
+    description:
+      "Low-cost, non-contact capacitive liquid-level sensor that clips onto any cup and guides visually impaired users to pour an exact volume through voice and haptic feedback.",
+    longDescription:
+      "Globally, an estimated 285 million people live with visual impairment, of whom 39 million are fully blind. Among the most persistent challenges these individuals face are routine household tasks - such as measuring liquids accurately during cooking, medicine preparation, or beverage making. The absence of a visual reference forces reliance on another person or risking dangerous measurement errors.\n\n" +
+      "FeelFill is a low-cost, non-contact, capacitive liquid-level sensing device that provides real-time multi-modal feedback through voice announcements and haptic vibration to guide a visually impaired user to pour the exact required volume. The device is self-contained, battery-powered, and designed to clip onto any standard cup, making it universally applicable and affordable.\n\n" +
+      "Developed through the Design Thinking framework - grounded in a specific persona (Chamari Perera, 34, a fully blind home-maker from Galle) and validated by empathy research - the design satisfies all six stated design criteria: no visual display, non-contact sensing, universal cup fit, battery operation, under 8,000 LKR unit cost, and no smartphone or digital literacy required.",
+    highlights: [
+      "Voice feedback at 4 fill levels via DFPlayer Mini + 8Ω speaker",
+      "Haptic near-full warning at 95% capacity",
+      "Non-contact capacitive sensing through the cup wall - hygienic, safe with hot liquids",
+      "ESP32 + DFPlayer Mini architecture with UART/GPIO control",
+      "8+ hour battery life - 18650 Li-ion with USB-C (TP4056) charging",
+      "Universal cup fit via adjustable silicone sleeve (50–100mm)",
+      "Full BOM under 8,000 LKR per unit",
+      "No screen, smartphone, or digital literacy required",
+    ],
+    images: [
+      "/images/feelfill-profile.jpg",
+    ],
+    category: "IoT & Embedded",
+    year: "2026",
+    status: "ongoing",
+    featured: false,
+    image: "/images/feelfill-profile.jpg",
+    tech: ["ESP32", "DFPlayer Mini", "Capacitive Sensing", "18650 Li-ion", "TP4056", "ABS Enclosure"],
+    highlight: "ET-3273 Engineering Product Design - University of Ruhuna",
+  },
 ];
 
 export const projectCategories = [

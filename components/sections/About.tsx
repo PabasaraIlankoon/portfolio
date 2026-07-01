@@ -13,7 +13,7 @@ export default function About() {
         <div className="section-label mb-0">About Me</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
           Building intelligent systems where<br />
-          <em className="not-italic text-accent-light">software meets hardware.</em>
+          <em className="not-italic gradient-text-animated heading-glow-pulse">software meets hardware.</em>
         </h2>
         <p className="text-muted max-w-2xl mb-12">
           Core profile and background. My work focuses on edge AI, embedded intelligence, and building systems that operate reliably in the real world.
@@ -27,8 +27,8 @@ export default function About() {
               onClick={() => setActiveTab(tab)}
               className={`px-5 py-3 text-sm font-medium transition-all duration-200 border-b-2 -mb-px ${
                 activeTab === tab
-                  ? "text-text border-accent"
-                  : "text-muted border-transparent hover:text-text"
+                  ? "text-text border-accent shadow-[0_1px_0_0_rgba(108,99,255,0.4)]"
+                  : "text-muted border-transparent hover:text-text hover:border-border"
               }`}
             >
               {tab}
@@ -59,7 +59,11 @@ export default function About() {
                 { v: "IET", l: "Member" },
                 { v: "2024", l: "Started KDU" },
               ].map((s, i) => (
-                <div key={i} className="bg-card border border-border rounded-xl p-4">
+                <div
+                  key={i}
+                  className="bg-card border border-border rounded-xl p-4 card-hover relative overflow-hidden"
+                >
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent via-accent-light to-accent-green" />
                   <div className="text-xl font-bold text-text mb-1">{s.v}</div>
                   <div className="text-xs text-subtle">{s.l}</div>
                 </div>
@@ -76,7 +80,7 @@ export default function About() {
                 <div>
                   <div className="font-semibold text-text">{edu.degree}</div>
                   <div className="text-muted text-sm mt-0.5">{edu.institution}</div>
-                  <div className="text-subtle text-xs mt-1 font-mono">{edu.period}</div>
+                  <div className="text-accent-light text-xs mt-1 font-mono">{edu.period}</div>
                 </div>
               </div>
             ))}
@@ -87,7 +91,7 @@ export default function About() {
           <div className="space-y-4 animate-fade-in">
             {leadership.map((item, i) => (
               <div key={i} className="flex items-center gap-4 p-4 bg-card border border-border rounded-xl card-hover">
-                <div className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+                <div className="w-2 h-2 rounded-full bg-gradient-to-br from-accent to-accent-green flex-shrink-0 animate-pulse2" />
                 <div className="flex-1 flex flex-wrap items-center gap-x-4 gap-y-1">
                   <span className="font-semibold text-accent-light text-sm">{item.role}</span>
                   <span className="text-muted text-sm">— {item.org}</span>
@@ -101,7 +105,10 @@ export default function About() {
         {activeTab === "Coursework" && (
           <div className="flex flex-wrap gap-3 animate-fade-in">
             {coursework.map((c, i) => (
-              <span key={i} className="px-4 py-2 bg-card border border-border rounded-lg text-muted text-sm hover:border-accent/40 hover:text-accent-light transition-all cursor-default">
+              <span
+                key={i}
+                className="px-4 py-2 bg-card border border-border rounded-lg text-muted text-sm hover:border-accent/40 hover:text-accent-light hover:-translate-y-0.5 transition-all cursor-default"
+              >
                 {c}
               </span>
             ))}

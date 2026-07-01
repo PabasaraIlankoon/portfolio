@@ -53,7 +53,7 @@ export default function About() {
             </div>
             <div className="grid grid-cols-3 gap-4">
               {[
-                { v: "6+", l: "Projects" },
+                { v: "10+", l: "Projects" },
                 { v: "5", l: "Certifications" },
                 { v: "2", l: "Degrees (in progress)" },
                 { v: "IET", l: "Member" },

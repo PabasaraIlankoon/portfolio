@@ -11,7 +11,7 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto">
         <div className="section-label mb-0">Skills</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-          What I work with
+          What I <span className="gradient-text-animated heading-glow-pulse">work with</span>
         </h2>
         <p className="text-muted max-w-2xl mb-10">
           Technical areas shaped by real project work — not just coursework.
@@ -26,7 +26,7 @@ export default function Skills() {
             {coursework.map((c) => (
               <span
                 key={c}
-                className="px-3 py-1.5 bg-card border border-border rounded-lg text-muted text-xs font-mono hover:border-accent/40 hover:text-accent-light transition-all cursor-default"
+                className="px-3 py-1.5 bg-card border border-border rounded-lg text-muted text-xs font-mono hover:border-accent/40 hover:text-accent-light hover:-translate-y-0.5 transition-all cursor-default"
               >
                 {c}
               </span>
@@ -41,12 +41,15 @@ export default function Skills() {
               <button
                 key={s.id}
                 onClick={() => setActive(i)}
-                className={`w-full text-left px-5 py-4 border-b border-border last:border-0 transition-all duration-200 group ${
-                  active === i
-                    ? "bg-accent/10 border-l-2 border-l-accent"
-                    : "hover:bg-card border-l-2 border-l-transparent"
+                className={`w-full text-left px-5 py-4 border-b border-border last:border-0 transition-all duration-200 group relative overflow-hidden ${
+                  active === i ? "bg-accent/10" : "hover:bg-card"
                 }`}
               >
+                <span
+                  className={`absolute left-0 top-0 bottom-0 w-[3px] transition-all duration-300 ${
+                    active === i ? "bg-gradient-to-b from-accent via-accent-light to-accent-green" : "bg-transparent"
+                  }`}
+                />
                 <div className="text-[10px] font-mono text-subtle mb-1">{s.label}</div>
                 <div className={`font-semibold text-sm ${active === i ? "text-text" : "text-muted group-hover:text-text"}`}>
                   {s.title}
@@ -70,7 +73,7 @@ export default function Skills() {
                 {skill.tools.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1.5 bg-accent/10 border border-accent/25 rounded-lg text-accent-light text-xs font-mono font-medium"
+                    className="px-3 py-1.5 bg-accent/10 border border-accent/25 rounded-lg text-accent-light text-xs font-mono font-medium hover:border-accent/50 hover:bg-accent/15 transition-colors"
                   >
                     {t}
                   </span>
@@ -107,7 +110,7 @@ export default function Skills() {
               <ul className="mb-6 space-y-2">
                 {skill.points.map((point, i) => (
                   <li key={i} className="flex items-start gap-3 text-muted text-sm leading-relaxed">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-accent to-accent-green mt-1.5 flex-shrink-0" />
                     {point}
                   </li>
                 ))}

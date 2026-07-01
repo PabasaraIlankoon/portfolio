@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import {
-  Github,
   Volume2,
   Vibrate,
   Radar,

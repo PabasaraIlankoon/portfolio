@@ -32,7 +32,7 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto">
         <div className="section-label mb-0">Projects</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-          What I&apos;ve Built
+          What I&apos;ve <span className="gradient-text-animated heading-glow-pulse">Built</span>
         </h2>
         <p className="text-muted max-w-2xl mb-10">
           Selected work across AI, embedded systems, IoT, and robotics.
@@ -44,15 +44,15 @@ export default function Projects() {
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeFilter === cat
-                  ? "bg-accent text-white"
+                  ? "bg-gradient-to-r from-accent via-accent-light to-accent-green bg-[length:200%_auto] hover:bg-right text-bg shadow-[0_10px_24px_-10px_rgba(108,99,255,0.6)]"
                   : "bg-card border border-border text-muted hover:border-accent/40 hover:text-accent-light"
               }`}
             >
-                {cat}
+              {cat}
               {cat !== "All Projects" && (
-                <span className="ml-1.5 text-xs opacity-60">
+                <span className="ml-1.5 text-xs opacity-70">
                   ({projects.filter((p: Project) => p.category === cat).length})
                 </span>
               )}
@@ -60,7 +60,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Uniform project grid — every card same size/shape */}
+        {/* Uniform project grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filtered.map((project: Project) => (
             <Link
@@ -79,11 +79,9 @@ export default function Projects() {
                     (e.currentTarget as HTMLImageElement).style.display = "none";
                   }}
                 />
-                {/* Fallback gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent-light/5 flex items-center justify-center -z-10">
                   <span className="text-4xl opacity-30">⚡</span>
                 </div>
-                {/* Badges overlay */}
                 <div className="absolute top-3 left-3 flex gap-2 flex-wrap">
                   {project.featured && (
                     <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-black/60 text-accent-light border border-accent/20">
@@ -95,7 +93,6 @@ export default function Projects() {
                 <div className="absolute top-3 right-3 font-mono text-xs text-subtle bg-black/60 px-2 py-0.5 rounded">
                   {project.year}
                 </div>
-                {/* Hover overlay */}
                 <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors flex items-center justify-center">
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/70 text-white text-xs px-3 py-1.5 rounded-full font-medium">
                     View Details →
@@ -115,7 +112,7 @@ export default function Projects() {
                 </p>
                 {project.highlight && (
                   <p className="text-accent-green text-xs font-mono mb-4 flex items-center gap-1.5 line-clamp-1">
-                    <span className="w-1 h-1 rounded-full bg-accent-green flex-shrink-0" />
+                    <span className="w-1 h-1 rounded-full bg-accent-green flex-shrink-0 animate-pulse2" />
                     {project.highlight}
                   </p>
                 )}
@@ -139,7 +136,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="flex items-center gap-1.5 text-xs text-muted hover:text-text transition-colors"
+                        className="flex items-center gap-1.5 text-xs text-muted hover:text-accent-light transition-colors"
                       >
                         <Github size={14} /> GitHub
                       </a>
@@ -150,7 +147,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="flex items-center gap-1.5 text-xs text-muted hover:text-text transition-colors"
+                        className="flex items-center gap-1.5 text-xs text-muted hover:text-accent-light transition-colors"
                       >
                         <ExternalLink size={14} /> Demo
                       </a>

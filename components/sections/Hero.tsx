@@ -106,7 +106,7 @@ export default function Hero() {
 
           {/* Live typewriter role line, echoing the badge above */}
           <div
-            className={`flex items-center gap-1.5 mb-5 h-6 transition-all duration-700 delay-[250ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+            className={`flex items-center gap-1.5 mb-5 h-6 transition-all duration-700 delay-[250ms] |{mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
             <span className="text-accent-light font-mono text-sm">$</span>
             <span className="text-muted font-mono text-sm">{typedRole}</span>

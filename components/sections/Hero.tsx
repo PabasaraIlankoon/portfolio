@@ -49,8 +49,8 @@ export default function Hero() {
       const rect = section.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
-      section.style.setProperty("--mouse-x", `|{x}%`);
-      section.style.setProperty("--mouse-y", `|{y}%`);
+      section.style.setProperty("--mouse-x", `${x}%`);
+      section.style.setProperty("--mouse-y", `${y}%`);
     };
     section.addEventListener("mousemove", handleMove);
     return () => section.removeEventListener("mousemove", handleMove);
@@ -91,7 +91,7 @@ export default function Hero() {
               return (
                 <span
                   key={i}
-                  className={`block |{
+                  className={`block ${
                     isLast ? "gradient-text-animated heading-glow-pulse" : i === 1 ? "text-muted" : "text-text"
                   }`}
                 >
@@ -106,9 +106,9 @@ export default function Hero() {
 
           {/* Live typewriter role line, echoing the badge above */}
           <div
-            className={`flex items-center gap-1.5 mb-5 h-6 transition-all duration-700 delay-[250ms] |{mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+            className={`flex items-center gap-1.5 mb-5 h-6 transition-all duration-700 delay-[250ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
-            <span className="text-accent-light font-mono text-sm">|</span>
+            <span className="text-accent-light font-mono text-sm">$</span>
             <span className="text-muted font-mono text-sm">{typedRole}</span>
             <span className="typing-caret text-accent-light" />
           </div>

@@ -49,8 +49,8 @@ export default function Hero() {
       const rect = section.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
-      section.style.setProperty("--mouse-x", `|{x}%`);
-      section.style.setProperty("--mouse-y", `|{y}%`);
+      section.style.setProperty("--mouse-x", `${x}%`);
+      section.style.setProperty("--mouse-y", `${y}%`);
     };
     section.addEventListener("mousemove", handleMove);
     return () => section.removeEventListener("mousemove", handleMove);
@@ -104,19 +104,13 @@ export default function Hero() {
             })}
           </h1>
 
-         {/* Typewriter role line */}
-            <div className="flex items-center gap-2 h-7">
-              <span className="text-[var(--accent)] font-mono text-sm font-bold">›</span>
-              <span
-                className="text-[var(--text-muted)] font-mono text-sm transition-all duration-300"
-                style={{ opacity: fade ? 1 : 0, transform: fade ? "translateY(0)" : "translateY(6px)" }}
-              >
-                {roles[roleIdx]}
-              </span>
-              <span className="w-[2px] h-4 bg-[var(--accent)] ml-0.5 rounded-full"
-                style={{ animation: "typewriter-cursor 1s ease-in-out infinite" }} />
-            </div>
-          </div>
+          {/* Live typewriter role line, echoing the badge above */}
+          <div
+            className={`flex items-center gap-1.5 mb-5 h-6 transition-all duration-700 delay-[250ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          >
+            <span className="text-accent-light font-mono text-sm">{">"}</span>
+            <span className="text-muted font-mono text-sm">{typedRole}</span>
+            <span className="typing-caret text-accent-light" />
           </div>
 
           <p className="text-muted text-base leading-relaxed mb-3 max-w-lg">

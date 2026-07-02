@@ -1,154 +1,158 @@
+<div align="center">
 
-# Pabasara Ilankoon — Portfolio
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F2027,50:2C5364,100:00C9A7&height=200&section=header&text=Pabasara%20Ilankoon&fontSize=42&fontColor=ffffff&desc=Electronic%20and%20Telecommunication%20Engineering%20Undergraduate&descAlign=50&descAlignY=65&animation=fadeIn" width="100%" />
 
-Built with **Next.js 14** + **Tailwind CSS** + **TypeScript**.  
+<br/>
 
----
+### Built with Passion 💚
+
+<p>
+<img src="https://img.shields.io/badge/●_LIVE_SITE-000000?style=for-the-badge" />
+<img src="https://img.shields.io/badge/PABASARA--ILANKOON.VERCEL.APP-00C9A7?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+</p>
+<p>
+<img src="https://img.shields.io/badge/▲_DEPLOYED_ON-000000?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+<img src="https://img.shields.io/badge/LICENSE-555555?style=for-the-badge" />
+<img src="https://img.shields.io/badge/MIT-2563EB?style=for-the-badge" />
+</p>
+
+</div>
+
+<br/>
+
+## 🖥️ About This Project
+
+This repository holds the source code for my personal portfolio website - built to showcase who I am as an **Electronic & Telecommunication Engineering** undergraduate, and a builder of **AI/ML systems, robotics, and full-stack applications**.
+
+Every section is scroll-animated for a smooth, modern feel rather than a static template look - from the hero introduction to the achievements gallery.
+
+🔗 **Live Site:** [pabasara-ilankoon.vercel.app](https://pabasara-ilankoon.vercel.app/)
+
+<br/>
+
+## ✨ Features
+
+- 🎬 **Scroll-reveal animations** across every section for a smooth, dynamic feel
+- 🧭 **Fixed, responsive navbar** with a mobile menu and smooth in-page scrolling
+- 🎯 **Hero section** - animated landing intro with quick highlights and social links
+- 👤 **About section** - tabbed overview covering background, education, and interests
+- 🗂️ **Projects section** - filterable grid of work across AI/ML, robotics, and software
+- 🌈 **Skills section** - interactive panel showcasing technical strengths
+- 🏆 **Achievements section** - awards and certifications gallery
+- 📬 **Contact section** - direct contact form and social/professional links
+- 🌀 **Dark, gradient-driven UI** with a consistent purple/pink accent system
+- 📱 **Fully responsive** across desktop, tablet, and mobile
+- ⚡ **Fast, optimized rendering** via Next.js App Router
+
+<br/>
+
+## 🧩 Built With
+
+<p>
+<img src="https://img.shields.io/badge/Next.js_14_(App_Router)-000000?style=for-the-badge&logo=next.js&logoColor=white" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+<img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
+<img src="https://img.shields.io/badge/Lucide_Icons-F56565?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+</p>
+
+<br/>
 
 ## 📁 Project Structure
 
 ```
 pabasara-portfolio/
 ├── app/
-│   ├── globals.css          ← All global styles
-│   ├── layout.tsx           ← Root layout + metadata (SEO)
-│   └── page.tsx             ← Main page (assembles sections)
+│   ├── globals.css              # All global styles
+│   ├── layout.tsx                # Root layout + metadata (SEO)
+│   └── page.tsx                    # Main page (assembles sections)
 ├── components/
-│   ├── Navbar.tsx           ← Fixed nav with mobile menu
-│   ├── Footer.tsx           ← Footer
+│   ├── Navbar.tsx                  # Fixed nav with mobile menu
+│   ├── Footer.tsx                    # Footer
 │   └── sections/
-│       ├── Hero.tsx         ← Landing section
-│       ├── About.tsx        ← Tabbed about section
-│       ├── Projects.tsx     ← Filterable project grid
-│       ├── Skills.tsx       ← Interactive skill panel
-│       ├── Achievements.tsx ← Awards + certifications
-│       └── Contact.tsx      ← Contact form + links
+│       ├── Hero.tsx                   # Landing section
+│       ├── About.tsx                 # Tabbed about section
+│       ├── Projects.tsx           # Filterable project grid
+│       ├── Skills.tsx                # Interactive skill panel
+│       ├── Achievements.tsx    # Awards + certifications
+│       └── Contact.tsx             # Contact form + links
 ├── lib/
-│   └── data.ts              
+│   └── data.ts                       # Centralized content (profile, projects, skills, etc.)
 ├── public/
-│   ├── images/              ← Put your photos here
-│   │   └── profile.jpg      ← Your profile photo
-│   └── resume.pdf           ← Your CV
-├── package.json
-├── tailwind.config.js
-├── tsconfig.json
-└── next.config.js
+│   ├── images/                       # Photos & project images
+│   └── resume.pdf                  # CV
+└── README.md
 ```
 
----
+<br/>
 
-## 🚀 Step-by-Step Setup in VS Code
+## 🚀 Getting Started
 
-### Step 1 — Install Node.js
-Download and install from https://nodejs.org (choose LTS version)
+Clone and run the project locally:
 
-### Step 2 — Open in VS Code
 ```bash
-# Open VS Code terminal (Ctrl + `)
-cd pabasara-portfolio
-```
+# Clone the repository
+git clone https://github.com/PabasaraIlankoon/portfolio.git
 
-### Step 3 — Install dependencies
-```bash
+# Navigate into the project
+cd portfolio
+
+# Install dependencies
 npm install
-```
 
-### Step 4 — Run locally
-```bash
+# Run the development server
 npm run dev
 ```
-Open http://localhost:3000 in your browser. You'll see your portfolio live!
 
----
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## ✏️ How to Edit Content
+<br/>
 
-**All your data is in one file: `lib/data.ts`**
+## 📝 Editing Content
 
-Open it and edit:
-- `personalInfo` → your name, bio, links, photo path
-- `projects[]` → add/edit/remove projects
-- `skills[]` → your skill categories and tools
-- `achievements[]` → competition wins
-- `certifications[]` → your certs
-- `education[]` → your education
-- `leadership[]` → leadership roles
+Most site content - profile info, projects, skills, achievements - lives in `lib/data.ts`. Update that file to change what's displayed without touching any component logic.
 
----
+<br/>
 
-## 🖼️ Adding Your Photo
+## 🎨 Customization
 
-1. Put your photo file at `public/images/profile.jpg`
-2. That's it — it will show up automatically
+Theme colors can be adjusted in `tailwind.config.js`:
 
-For project images, add them to `public/images/` and update the `image` field in each project in `data.ts`.
-
----
-
-## 🌐 Deploying to Vercel (Free)
-
-### Option A — Vercel (Recommended, same as Sahas's site)
-
-1. Push your project to GitHub:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial portfolio"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
-   git push -u origin main
-   ```
-
-2. Go to https://vercel.com and sign in with GitHub
-
-3. Click **"New Project"** → import your repo → click **Deploy**
-
-4. Done! You'll get a live URL like `pabasara-portfolio.vercel.app`
-
-5. To use a custom domain: go to Vercel → Project Settings → Domains
-
-### Option B — GitHub Pages
-
-1. In `next.config.js`, change `output: "export"` (already set ✓)
-2. Push to GitHub
-3. Go to repo Settings → Pages → select `main` branch → `/out` folder
-4. Run `npm run build` and push the `out/` folder
-
----
-
-## 🎨 Customizing Colors
-
-Edit `tailwind.config.js` to change the accent color:
 ```js
-accent: "#6c63ff",         // Main purple — change this
-"accent-light": "#a78bfa", // Lighter purple
-"accent-green": "#34d399", // Green for status badges
+accent: "#6c63ff",           // Main purple - change this
+"accent-light": "#a78bfa",   // Lighter purple
+"accent-green": "#34d399",   // Green for status badges
 ```
 
----
+<br/>
 
-## 📦 Tech Stack
+## 🗺️ Roadmap
 
-| Technology | Purpose |
-|---|---|
-| Next.js 14 | Framework (App Router) |
-| TypeScript | Type safety |
-| Tailwind CSS | Styling |
-| Lucide React | Icons |
-| Framer Motion | Animations (optional, installed) |
+- [ ] Add a blog / write-ups section
+- [ ] Add light/dark theme toggle
+- [ ] Add project filtering by tech stack
+- [ ] Add unit/integration tests
+- [ ] Improve Lighthouse performance score
 
----
+<br/>
 
-## 🆘 Common Issues
+## 📬 Contact Me
 
-**"Module not found"** → Run `npm install` again
+<p>
+<a href="https://pabasara-ilankoon.vercel.app/"><img src="https://img.shields.io/badge/▲_PORTFOLIO-000000?style=for-the-badge" /></a>
+<a href="https://pabasara-ilankoon.vercel.app/"><img src="https://img.shields.io/badge/VISIT_SITE-00C9A7?style=for-the-badge" /></a>
+<a href="https://www.linkedin.com/in/pabasara-ilankoon/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+<a href="https://github.com/PabasaraIlankoon"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
+<img src="https://img.shields.io/badge/PABASARA--ILANKOON-000000?style=for-the-badge" />
+</p>
 
-**Photo not showing** → Make sure file is at `public/images/profile.jpg` (exact name)
+<br/>
 
-**Build error** → Run `npm run build` to see detailed errors
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C9A7,100:2C5364&height=120&section=footer" width="100%" />
 
-**Port 3000 in use** → Run `npm run dev -- -p 3001`
-
-# portfolio
-Electronics &amp; Telecommunication Engineering portfolio featuring AI/ML systems, robotics competitions, and full-stack applications.
-
+</div>

@@ -49,8 +49,8 @@ export default function Hero() {
       const rect = section.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
-      section.style.setProperty("--mouse-x", `${x}%`);
-      section.style.setProperty("--mouse-y", `${y}%`);
+      section.style.setProperty("--mouse-x", `|{x}%`);
+      section.style.setProperty("--mouse-y", `|{y}%`);
     };
     section.addEventListener("mousemove", handleMove);
     return () => section.removeEventListener("mousemove", handleMove);

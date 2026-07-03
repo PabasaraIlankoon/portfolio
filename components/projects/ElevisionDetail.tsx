@@ -507,7 +507,7 @@ export function ElevisionDetail() {
           {[
             { stat: "5 - 10",      label: "elephants lost per year",  sub: "to train collisions in Sri Lanka" },
             { stat: "70%",       label: "collisions at night",      sub: "zero warning for drivers currently" },
-            { stat: "15 - 30 min", label: "average response time",    sub: "with current manual reporting" },
+            { stat: "15 - 30 sec", label: "average response time",    sub: "with current manual reporting" },
           ].map((s, i) => (
             <div key={i} className="rounded-xl bg-red-50 border border-red-100 p-4">
               <div className="text-xl font-bold text-red-700 font-mono">{s.stat}</div>

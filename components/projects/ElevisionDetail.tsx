@@ -495,7 +495,7 @@ export function ElevisionDetail() {
             Sri Lanka loses 5 - 10 elephants every year to train collisions. The railway network passes
             through critical elephant habitats - the Gal Oya corridor, Minneriya - Kaudulla gathering
             zones, and the Habarana - Polonnaruwa crossing - mostly at night, when visibility is near zero
-            and response times average 15 - 30 minutes.
+            and response times average 15 - 30 seconds.
           </p>
           <p className="text-gray-600 leading-[1.8] text-[0.97rem]">
             Elevision is the real-time intelligence layer that sits between the animal and the oncoming

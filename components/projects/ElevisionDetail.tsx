@@ -492,10 +492,10 @@ export function ElevisionDetail() {
         <SectionLabel>The problem</SectionLabel>
         <div className="space-y-4">
           <p className="text-gray-600 leading-[1.8] text-[0.97rem]">
-            Sri Lanka loses 5 - 10 elephants every year to train collisions. The railway network passes
+            Sri Lanka loses 10 - 20 elephants every year to train collisions. The railway network passes
             through critical elephant habitats - the Gal Oya corridor, Minneriya - Kaudulla gathering
             zones, and the Habarana - Polonnaruwa crossing - mostly at night, when visibility is near zero
-            and response times average 15 - 30 seconds.
+            and response times average 5 - 10 seconds.
           </p>
           <p className="text-gray-600 leading-[1.8] text-[0.97rem]">
             Elevision is the real-time intelligence layer that sits between the animal and the oncoming
@@ -505,9 +505,9 @@ export function ElevisionDetail() {
         </div>
         <div className="mt-6 grid sm:grid-cols-3 gap-3">
           {[
-            { stat: "5 - 10",      label: "elephants lost per year",  sub: "to train collisions in Sri Lanka" },
+            { stat: "10 - 20",      label: "elephants lost per year",  sub: "to train collisions in Sri Lanka" },
             { stat: "70%",       label: "collisions at night",      sub: "zero warning for drivers currently" },
-            { stat: "15 - 30 sec", label: "average response time",    sub: "with current manual reporting" },
+            { stat: "5 - 10 sec", label: "average response time",    sub: "with current manual reporting" },
           ].map((s, i) => (
             <div key={i} className="rounded-xl bg-red-50 border border-red-100 p-4">
               <div className="text-xl font-bold text-red-700 font-mono">{s.stat}</div>
@@ -596,10 +596,10 @@ export function ElevisionDetail() {
             { value: "94%",    label: "Avg. confidence",     sub: "YOLOv8 Nano",        accent: true },
             { value: "<3%",    label: "False positive rate", sub: "2-frame filter" },
             { value: "~300ms", label: "Inference / frame",   sub: "Raspberry Pi 4",     accent: true },
-            { value: "<5s",    label: "Alert delivery",      sub: "Pi → phone",         accent: true },
+            { value: "<10s",    label: "Alert delivery",      sub: "Pi → phone",         accent: true },
             { value: "<2s",    label: "Dashboard update",    sub: "Firestore stream" },
-            { value: "15m",    label: "Detection range",     sub: "Night-vision camera" },
-            { value: "4h",     label: "UPS battery backup",  sub: "Off-grid operation" },
+            { value: "75m",    label: "Detection range",     sub: "Night-vision camera" },
+            { value: "15h",     label: "UPS battery backup",  sub: "Off-grid operation" },
             { value: "<30s",   label: "GSM SMS fallback",    sub: "No internet needed", accent: true },
           ].map((m, i) => (
             <MetricCard key={i} {...m} />

@@ -27,6 +27,7 @@ import { DigitalCommDetail } from "@/components/projects/DigitalCommDetail";
 import { MarsRobotDetail } from "@/components/projects/MarsRobotdetail";
 import { RoscoDetail } from "@/components/projects/RoscoDetail";
 import { FeelFillDetail } from "@/components/projects/FeelFillDetail";
+import { FinFlowDetail } from "@/components/projects/FinFlowDetail";
 
 // ─────────────────────────────────────────────
 // Types
@@ -356,11 +357,12 @@ export default function ProjectDetailClient({ id }: { id: string }) {
   const isMarsRobot = project.id === 5;
   const isRosco = project.id === 6;
   const isFeelFill = project.id === 7;
+  const isFinFlow = project.id === 8;
 
   // Projects with a fully custom detail component - skip the generic
   // "About this project" + highlights block entirely for these.
   const hasCustomDetail =
-    isElevision || isLankaMesh || isDigitalComm || isMarsRobot || isRosco || isFeelFill;
+    isElevision || isLankaMesh || isDigitalComm || isMarsRobot || isRosco || isFeelFill || isFinFlow;
 
   const comparisonImages: string[] = project.comparisons
     ? project.comparisons.flatMap((c) => [c.photo, c.result])
@@ -468,6 +470,7 @@ export default function ProjectDetailClient({ id }: { id: string }) {
               {isMarsRobot && <MarsRobotDetail />}
               {isRosco && <RoscoDetail />}
               {isFeelFill && <FeelFillDetail />}
+              {isFinFlow && <FinFlowDetail />}
 
               {!hasCustomDetail && (
                 <>

@@ -380,8 +380,57 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
     featured: false,
     image: "/images/feelfill-profile.jpg",
     tech: ["ESP32", "DFPlayer Mini", "Capacitive Sensing", "18650 Li-ion", "TP4056", "ABS Enclosure"],
-    highlight: "ET-3273 Engineering Product Design - University of Ruhuna",
+    highlight: "ET-3273 Engineering Product Design - KDU",
   },
+{
+  id: 8,
+  title: "FinFlow",
+  subtitle: "Voice-Enabled Finance Manager Secured by WSO2 API Manager",
+  description:
+    "A full-stack personal finance manager mobile app with a voice assistant, bill-splitting, and budget tracking - every request authenticated and gatewayed through WSO2 API Manager before reaching the backend.",
+  longDescription:
+    "FinFlow is a complete personal finance manager built to demonstrate a production-style API gateway architecture on a real, working consumer app. Rather than having the Flutter app talk directly to a bare backend, every single request - login, transactions, budgets, reports - is authenticated and routed through WSO2 API Manager, which issues and validates OAuth2 tokens, enforces subscription and throttling policies, and rejects unauthenticated traffic before it ever reaches the Node.js/Express backend.\n\n" +
+      "The app covers the full day-to-day finance workflow: multiple accounts (cash, bank, card, savings) with live balances, auto-seeded and customisable income/expense categories, a dashboard with a gradient summary card and category breakdown, monthly per-category budgets with progress tracking, income-vs-expense reports, and a bill-splitting tool for shared expenses with friends.\n\n" +
+      "A built-in voice assistant lets users add transactions hands-free - saying something like \"I spent 500 on groceries\" is parsed on-device, matched against existing categories, logged as a transaction, and confirmed back to the user by text-to-speech. The backend itself is a lightweight, dependency-free JSON-file datastore (no native compilation required), designed to be swapped for PostgreSQL/MySQL in a production deployment.\n\n" +
+      "The WSO2 layer was configured end-to-end: a REST API definition, deployment to the gateway, a subscribed application with OAuth2 Password-grant credentials, and full request-flow verification from token issuance through to gatewayed API calls - documented as a reusable reference architecture for securing mobile apps behind WSO2 API Manager.",
+  highlights: [
+    "OAuth2 authentication and authorisation via WSO2 API Manager (Password grant)",
+    "Every API call gatewayed - WSO2 rejects unauthenticated traffic before it reaches the backend",
+    "Voice assistant - on-device speech parsing adds transactions and speaks a confirmation back",
+    "Multi-account tracking (cash, bank, card, savings) with live, auto-updating balances",
+    "Per-category monthly budgets with progress bars and overspend alerts",
+    "Bill-splitting tool - splits shared expenses across any number of friends automatically",
+    "Dashboard with gradient summary card, income/expense donut chart, and recent activity",
+    "Reports screen - income vs. expense trend and category-wise breakdown",
+    "Dependency-free JSON datastore backend - zero native build tooling required",
+  ],
+  images: [
+    "/images/app1.jpg",
+    "/images/app2.jpg",
+    "/images/app3.jpg",
+    "/images/app4.jpg",
+    "/images/app5.jpg",
+    "/images/app6.jpg",
+    "/images/app7.jpg",
+    "/images/app8.jpg",
+  ],
+  category: "Software",
+  year: "2026",
+  status: "completed",
+  featured: true,
+  image: "/images/app1.jpg",
+  tech: [
+    "Flutter",
+    "Node.js",
+    "Express",
+    "WSO2 API Manager",
+    "OAuth2",
+    "Dart",
+    "REST APIs",
+  ],
+  github: "https://github.com/PabasaraIlankoon/FinFlow",
+  highlight: "Full OAuth2 API-gateway architecture via WSO2 API Manager",
+},
 ];
 
 export const projectCategories = [

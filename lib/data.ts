@@ -17,7 +17,7 @@ export const personalInfo = {
   cgpa: "In Progress",
   stats: [
     { value: "10+", label: "Projects" },
-    { value: "4", label: "Certifications" },
+    { value: "7", label: "Certifications" },
     { value: "2", label: "Degrees" },
   ],
 };
@@ -656,6 +656,36 @@ export const certifications: Certification[] = [
     image: "/images/matlab.jpeg",
     credentialUrl:
       "https://matlabacademy.mathworks.com/progress/share/certificate.html?id=9b88c9cd-6666-481e-aead-193484857180&",
+  },
+  {
+    title: "Understand the Transformer Architecture and Explore Large Language Models in Azure Machine Learning",
+    org: "Microsoft",
+    year: "2026",
+    description:
+      "Microsoft Learn module covering transformer architecture fundamentals and hands-on exploration of large language models within Azure Machine Learning.",
+    image: "/images/ms-transformer-llm-azureml.jpg",
+    credentialUrl:
+      "https://learn.microsoft.com/api/achievements/share/en-us/PabasaraIlankoon-7785/WMEUL8XN?sharingId=266B5AFADDEB9C52",
+  },
+  {
+    title: "Explore and Analyze Data with Python",
+    org: "Microsoft",
+    year: "2026",
+    description:
+      "Microsoft Learn module on exploratory data analysis, data cleaning, and visualization techniques using Python.",
+    image: "/images/ms-explore-analyze-data-python.jpg",
+    credentialUrl:
+      "https://learn.microsoft.com/api/achievements/share/en-us/PabasaraIlankoon-7785/NQP36YAF?sharingId=266B5AFADDEB9C52",
+  },
+  {
+    title: "Introduction to Machine Learning Concepts",
+    org: "Microsoft",
+    year: "2026",
+    description:
+      "Microsoft Learn foundational module covering core machine learning concepts, terminology, and workflows.",
+    image: "/images/ms-intro-machine-learning-concepts.jpg",
+    credentialUrl:
+      "https://learn.microsoft.com/api/achievements/share/en-us/PabasaraIlankoon-7785/8VQ95C5W?sharingId=266B5AFADDEB9C52",
   },
 ];
 export const coursework = [

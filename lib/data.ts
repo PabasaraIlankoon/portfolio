@@ -665,7 +665,8 @@ export const certifications: Certification[] = [
       "Microsoft Learn module covering transformer architecture fundamentals and hands-on exploration of large language models within Azure Machine Learning.",
     image: "/images/ms-transformer-llm-azureml.jpg",
     credentialUrl:
-      "https://learn.microsoft.com/api/achievements/share/en-us/PabasaraIlankoon-7785/WMEUL8XN?sharingId=266B5AFADDEB9C52",
+      "https://learn.microsoft.com/api/achievements/share/en-us/PabasaraIlankoon-7785/NQP36YAF?sharingId=266B5AFADDEB9C52",
+      
   },
   {
     title: "Explore and Analyze Data with Python",
@@ -675,7 +676,7 @@ export const certifications: Certification[] = [
       "Microsoft Learn module on exploratory data analysis, data cleaning, and visualization techniques using Python.",
     image: "/images/ms-explore-analyze-data-python.jpg",
     credentialUrl:
-      "https://learn.microsoft.com/api/achievements/share/en-us/PabasaraIlankoon-7785/NQP36YAF?sharingId=266B5AFADDEB9C52",
+      "https://learn.microsoft.com/api/achievements/share/en-us/PabasaraIlankoon-7785/WMEUL8XN?sharingId=266B5AFADDEB9C52",
   },
   {
     title: "Introduction to Machine Learning Concepts",

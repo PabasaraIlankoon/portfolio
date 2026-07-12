@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Github, ExternalLink, ArrowRight } from "lucide-react";
 import { projects, projectCategories, type Project } from "../../lib/data";
+import ChartBackground from "@/components/ChartBackground";
 
 function StatusBadge({ status }: { status: Project["status"] }) {
   const map = {
@@ -28,7 +29,8 @@ export default function Projects() {
       : projects.filter((p: Project) => p.category === activeFilter);
 
   return (
-    <section id="projects" className="py-14 px-6 bg-surface">
+    <section id="projects" className="relative overflow-hidden py-14 px-6 bg-surface">
+      <ChartBackground />
       <div className="max-w-6xl mx-auto">
         <div className="section-label mb-0 animate-on-scroll">Projects</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 animate-on-scroll" style={{ transitionDelay: "60ms" }}>

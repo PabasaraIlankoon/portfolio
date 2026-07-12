@@ -1,9 +1,11 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { personalInfo } from "@/lib/data";
+import ChartBackground from "@/components/ChartBackground";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border py-10 px-6 bg-bg">
+    <footer className="relative overflow-hidden border-t border-border py-10 px-6 bg-bg">
+      <ChartBackground />
       <div className="animate-on-scroll max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
           <div className="font-bold text-text mb-1">

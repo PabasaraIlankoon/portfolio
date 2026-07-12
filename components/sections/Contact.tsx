@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Github, Linkedin, FileText, Send } from "lucide-react";
 import { personalInfo } from "@/lib/data";
+import ChartBackground from "@/components/ChartBackground";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -24,7 +25,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 px-6">
+    <section id="contact" className="relative overflow-hidden py-28 px-6">
+      <ChartBackground />
       <div className="max-w-6xl mx-auto">
         <div className="section-label mb-0 animate-on-scroll">Contact</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 animate-on-scroll" style={{ transitionDelay: "60ms" }}>

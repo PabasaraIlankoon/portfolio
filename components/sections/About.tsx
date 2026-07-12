@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { education, leadership, coursework, personalInfo } from "@/lib/data";
+import ChartBackground from "@/components/ChartBackground";
 
 const tabs = ["Overview", "Education", "Leadership", "Coursework"];
 
@@ -8,7 +9,8 @@ export default function About() {
   const [activeTab, setActiveTab] = useState("Overview");
 
   return (
-    <section id="about" className="py-28 px-6">
+    <section id="about" className="relative overflow-hidden py-28 px-6">
+      <ChartBackground />
       <div className="max-w-6xl mx-auto">
         <div className="section-label mb-0 animate-on-scroll">About Me</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 animate-on-scroll" style={{ transitionDelay: "60ms" }}>

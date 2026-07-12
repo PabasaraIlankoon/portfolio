@@ -1,13 +1,15 @@
 "use client";
 import { useState } from "react";
 import { skills, coursework } from "@/lib/data";
+import ChartBackground from "@/components/ChartBackground";
 
 export default function Skills() {
   const [active, setActive] = useState(0);
   const skill = skills[active];
 
   return (
-    <section id="skills" className="py-28 px-6">
+    <section id="skills" className="relative overflow-hidden py-28 px-6">
+      <ChartBackground />
       <div className="max-w-6xl mx-auto">
         <div className="section-label mb-0 animate-on-scroll">Skills</div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 animate-on-scroll" style={{ transitionDelay: "60ms" }}>

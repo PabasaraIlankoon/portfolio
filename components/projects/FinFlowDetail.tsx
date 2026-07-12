@@ -429,7 +429,7 @@ export function FinFlowDetail() {
             { value: "OAuth2", label: "Auth protocol", sub: "Password grant", accent: true },
             { value: "8", label: "App screens", sub: "dashboard → split bills" },
             { value: "14", label: "REST endpoints", sub: "accounts → budgets", accent: true },
-            { value: "0", label: "Native deps", sub: "backend datastore" },
+            
           ].map((m, i) => (
             <MetricCard key={i} {...m} />
           ))}

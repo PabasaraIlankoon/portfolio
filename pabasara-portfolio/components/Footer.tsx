@@ -3,8 +3,8 @@ import { personalInfo } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border py-10 px-6 bg-bg">
-      <div className="animate-on-scroll max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer className="border-t border-border/20 py-10 px-6 bg-[#07070d] animate-fade-up">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 glass-card border border-accent/10 bg-[#090a12] p-6 rounded-[2rem] shadow-[0_40px_100px_-72px_rgba(108,99,255,0.2)] animate-fade-up">
         <div>
           <div className="font-bold text-text mb-1">
             {personalInfo.name}

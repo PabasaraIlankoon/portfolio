@@ -30,11 +30,11 @@ export default function Projects() {
   return (
     <section id="projects" className="py-14 px-6 bg-surface">
       <div className="max-w-6xl mx-auto">
-        <div className="section-label mb-0">Projects</div>
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+        <div className="section-label mb-0 animate-on-scroll">Projects</div>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 animate-on-scroll" style={{ transitionDelay: "60ms" }}>
           What I&apos;ve <span className="gradient-text-animated heading-glow-pulse">Built</span>
         </h2>
-        <p className="text-muted max-w-2xl mb-10">
+        <p className="text-muted max-w-2xl mb-10 animate-on-scroll" style={{ transitionDelay: "120ms" }}>
           Selected work across AI, embedded systems, IoT, and robotics.
         </p>
 
@@ -62,11 +62,17 @@ export default function Projects() {
 
         {/* Uniform project grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((project: Project) => (
+          {filtered.map((project: Project, i: number) => (
             <Link
               key={project.id}
               href={`/projects/${project.id}`}
-              className="bg-card border border-border rounded-2xl overflow-hidden card-hover flex flex-col cursor-pointer group"
+              className="animate-on-scroll spotlight-card bg-card border border-border rounded-2xl overflow-hidden card-hover flex flex-col cursor-pointer group"
+              style={{ transitionDelay: `${(i % 6) * 70}ms` }}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                e.currentTarget.style.setProperty("--spot-x", `${e.clientX - rect.left}px`);
+                e.currentTarget.style.setProperty("--spot-y", `${e.clientY - rect.top}px`);
+              }}
             >
               {/* Image */}
               <div className="relative h-44 bg-bg overflow-hidden flex-shrink-0">

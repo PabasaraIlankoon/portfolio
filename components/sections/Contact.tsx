@@ -26,18 +26,18 @@ export default function Contact() {
   return (
     <section id="contact" className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="section-label mb-0">Contact</div>
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+        <div className="section-label mb-0 animate-on-scroll">Contact</div>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 animate-on-scroll" style={{ transitionDelay: "60ms" }}>
           Get In <span className="gradient-text-animated heading-glow-pulse">Touch</span>
         </h2>
-        <p className="text-muted max-w-xl mb-16">
+        <p className="text-muted max-w-xl mb-16 animate-on-scroll" style={{ transitionDelay: "120ms" }}>
           Open to internships, research collaborations, and engineering-focused conversations.
           Share your message and I&apos;ll get back soon.
         </p>
 
         <div className="grid md:grid-cols-2 gap-16">
           {/* Left — Info */}
-          <div>
+          <div className="animate-on-scroll" style={{ transitionDelay: "160ms" }}>
             <p className="text-lg font-semibold mb-8 text-text/90 leading-snug">
               Let&apos;s build something{" "}
               <em className="not-italic text-accent-light">precise, useful, and a little ambitious.</em>
@@ -88,7 +88,8 @@ export default function Contact() {
           {/* Right — Form */}
           <form
             onSubmit={handleSubmit}
-            className="bg-card border border-border rounded-2xl p-7 space-y-5"
+            className="animate-on-scroll bg-card border border-border rounded-2xl p-7 space-y-5"
+            style={{ transitionDelay: "220ms" }}
           >
             <div className="space-y-1.5">
               <label className="text-xs font-mono text-subtle uppercase tracking-widest">Name</label>

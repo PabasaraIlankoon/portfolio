@@ -10,12 +10,12 @@ export default function About() {
   return (
     <section id="about" className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="section-label mb-0">About Me</div>
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+        <div className="section-label mb-0 animate-on-scroll">About Me</div>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 animate-on-scroll" style={{ transitionDelay: "60ms" }}>
           Building intelligent systems where<br />
           <em className="not-italic gradient-text-animated heading-glow-pulse">software meets hardware.</em>
         </h2>
-        <p className="text-muted max-w-2xl mb-12">
+        <p className="text-muted max-w-2xl mb-12 animate-on-scroll" style={{ transitionDelay: "120ms" }}>
           Core profile and background. My work focuses on edge AI, embedded intelligence, and building systems that operate reliably in the real world.
         </p>
 
@@ -61,7 +61,13 @@ export default function About() {
               ].map((s, i) => (
                 <div
                   key={i}
-                  className="bg-card border border-border rounded-xl p-4 card-hover relative overflow-hidden"
+                  className="animate-on-scroll bg-card border border-border rounded-xl p-4 card-hover spotlight-card relative overflow-hidden"
+                  style={{ transitionDelay: `${i * 80}ms` }}
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    e.currentTarget.style.setProperty("--spot-x", `${e.clientX - rect.left}px`);
+                    e.currentTarget.style.setProperty("--spot-y", `${e.clientY - rect.top}px`);
+                  }}
                 >
                   <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent via-accent-light to-accent-green" />
                   <div className="text-xl font-bold text-text mb-1">{s.v}</div>

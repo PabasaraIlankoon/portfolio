@@ -9,16 +9,16 @@ export default function Skills() {
   return (
     <section id="skills" className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="section-label mb-0">Skills</div>
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+        <div className="section-label mb-0 animate-on-scroll">Skills</div>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 animate-on-scroll" style={{ transitionDelay: "60ms" }}>
           What I <span className="gradient-text-animated heading-glow-pulse">work with</span>
         </h2>
-        <p className="text-muted max-w-2xl mb-10">
+        <p className="text-muted max-w-2xl mb-10 animate-on-scroll" style={{ transitionDelay: "120ms" }}>
           Technical areas shaped by real project work — not just coursework.
         </p>
 
         {/* Technical Skills (coursework) */}
-        <div className="mb-12">
+        <div className="mb-12 animate-on-scroll" style={{ transitionDelay: "160ms" }}>
           <div className="text-xs font-mono text-subtle uppercase tracking-widest mb-3">
             Technical Skills
           </div>
@@ -34,7 +34,7 @@ export default function Skills() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-0 border border-border rounded-2xl overflow-hidden">
+        <div className="animate-on-scroll grid md:grid-cols-3 gap-0 border border-border rounded-2xl overflow-hidden" style={{ transitionDelay: "200ms" }}>
           {/* Sidebar */}
           <div className="border-r border-border">
             {skills.map((s, i) => (

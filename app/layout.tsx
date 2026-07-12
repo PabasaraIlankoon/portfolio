@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import AmbientBackground from "@/components/AmbientBackground";
+import ScrollProgress from "@/components/ScrollProgress";
+import RevealInit from "@/components/RevealInit";
 
 export const metadata: Metadata = {
   title: "Pabasara Ilankoon | Electronic & Telecommunication Engineer",
@@ -41,7 +44,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AmbientBackground />
+        <ScrollProgress />
+        <RevealInit />
+        {children}
+      </body>
     </html>
   );
 }

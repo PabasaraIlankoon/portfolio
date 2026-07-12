@@ -276,6 +276,101 @@ textarea:focus-visible {
   box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.22);
 }
 
+/* ============================================================
+   AMBIENT BACKGROUND MOTION
+   Slow-drifting blurred blobs behind all content, fixed to the
+   viewport. Purely decorative, never intercepts pointer events.
+   ============================================================ */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.16;
+  will-change: transform;
+}
+.ambient-blob--1 {
+  width: 34vw;
+  height: 34vw;
+  top: -8%;
+  right: -6%;
+  background: radial-gradient(circle at 30% 30%, #6c63ff, transparent 70%);
+  animation: blobDrift1 22s ease-in-out infinite;
+}
+.ambient-blob--2 {
+  width: 28vw;
+  height: 28vw;
+  bottom: 4%;
+  left: -8%;
+  background: radial-gradient(circle at 40% 40%, #22c55e, transparent 70%);
+  animation: blobDrift2 26s ease-in-out infinite;
+}
+.ambient-blob--3 {
+  width: 22vw;
+  height: 22vw;
+  top: 40%;
+  left: 45%;
+  background: radial-gradient(circle at 50% 50%, #38bdf8, transparent 70%);
+  animation: blobDrift3 30s ease-in-out infinite;
+}
+@keyframes blobDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-4%, 6%) scale(1.08); }
+}
+@keyframes blobDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5%, -5%) scale(1.05); }
+}
+@keyframes blobDrift3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-46%, -54%) scale(1.12); }
+}
+
+/* Scroll progress bar (top of viewport, driven by Navbar) */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6c63ff, #22c55e, #38bdf8, #7c3aed);
+  background-size: 300% auto;
+  animation: gradientFlow 6s linear infinite;
+  z-index: 60;
+  transition: width 0.1s ease-out;
+}
+
+/* Spotlight hover card — soft radial highlight that follows the
+   cursor, layered above card-hover for extra depth on key cards. */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(240px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(108, 99, 255, 0.14), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Ensure page content sits above the ambient background */
+main, nav, footer {
+  position: relative;
+  z-index: 1;
+}
+
 /* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

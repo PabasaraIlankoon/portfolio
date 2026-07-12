@@ -74,7 +74,9 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-16 items-center relative z-10">
 
         <div className="pt-28 md:pt-0">
-          <div className="flex items-center gap-3 mb-8">
+          <div
+            className={`flex items-center gap-3 mb-8 transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          >
             <span className="w-6 h-px bg-accent-green" />
             <span className="text-accent-green text-xs font-medium uppercase tracking-widest">
               {personalInfo.roles[0]}
@@ -85,7 +87,9 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-[clamp(2.6rem,6vw,5rem)] font-bold leading-[1.0] tracking-[-0.04em] mb-6">
+          <h1
+            className={`text-[clamp(2.6rem,6vw,5rem)] font-bold leading-[1.0] tracking-[-0.04em] mb-6 transition-all duration-700 delay-[80ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          >
             {personalInfo.tagline.map((line, i) => {
               const isLast = i === personalInfo.tagline.length - 1;
               return (
@@ -113,7 +117,9 @@ export default function Hero() {
             <span className="typing-caret text-accent-light" />
           </div>
 
-          <p className="text-muted text-base leading-relaxed mb-3 max-w-lg">
+          <p
+            className={`text-muted text-base leading-relaxed mb-3 max-w-lg transition-all duration-700 delay-[320ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          >
             Building intelligent systems at the intersection of{" "}
             <strong className="text-text font-semibold">embedded hardware</strong> and{" "}
             <strong className="text-text font-semibold">machine intelligence</strong>. Currently
@@ -128,11 +134,15 @@ export default function Hero() {
             .
           </p>
 
-          <p className="text-subtle text-xs font-mono mb-10 whitespace-pre-line leading-relaxed">
+          <p
+            className={`text-subtle text-xs font-mono mb-10 whitespace-pre-line leading-relaxed transition-all duration-700 delay-[400ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          >
             {personalInfo.bio2}
           </p>
 
-          <div className="flex flex-wrap items-center gap-4">
+          <div
+            className={`flex flex-wrap items-center gap-4 transition-all duration-700 delay-[480ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          >
             <button
               onClick={() => scrollTo("#projects")}
               className="px-6 py-3 rounded-full bg-gradient-to-r from-accent via-accent-light to-accent-green bg-[length:200%_auto] text-bg font-semibold text-sm hover:-translate-y-0.5 hover:bg-right shadow-[0_14px_34px_-16px_rgba(108,99,255,0.7)] transition-all duration-500"
@@ -156,7 +166,9 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative hidden md:block h-screen self-stretch -mr-6 md:-mr-[max(0px,calc((100vw-72rem)/2))]">
+        <div
+          className={`relative hidden md:block h-screen self-stretch -mr-6 md:-mr-[max(0px,calc((100vw-72rem)/2))] transition-all duration-1000 ${mounted ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
+        >
           <div className="absolute inset-0 right-0 left-[-5%]">
             <Image src={personalInfo.photo} alt={personalInfo.name} fill className="object-cover object-top" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/10 to-transparent" />

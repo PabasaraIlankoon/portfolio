@@ -26,19 +26,19 @@ export const education = [
   {
     degree: "BSc (Hons) Electronic & Telecom. Engineering",
     institution: "General Sir John Kotelawala Defence University",
-    period: "Feb 2024 – Present",
+    period: "Feb 2024 - Present",
     icon: "🎓",
   },
   {
     degree: "BSc Information Technology (External)",
     institution: "University of Colombo School of Computing",
-    period: "Sep 2024 – Present",
+    period: "Sep 2024 - Present",
     icon: "💻",
   },
   {
     degree: "GCE A/L & O/L — Physical Science Stream",
     institution: "St. Anne's College, Kurunegala",
-    period: "Jan 2013 – Feb 2022",
+    period: "Jan 2013 - Feb 2022",
     icon: "🏫",
   },
 ];
@@ -48,22 +48,22 @@ export const leadership = [
   {
     role: "Finance Team Lead",
     org: "GENESIZ'26",
-    period: "May 2026 – Present",
+    period: "May 2026 - Present",
   },
   {
     role: "Finance Committee Member",
     org: "ERIC KDU",
-    period: "Feb 2026 – Present",
+    period: "Feb 2026 - Present",
   },
   {
     role: "Program Team Member",
     org: "IEEE ComSoc KDU",
-    period: "Jun 2025 – Jun 2026",
+    period: "Jun 2025 - Jun 2026",
   },
   {
     role: "Design Committee Member",
     org: "Mathematical Society KDU",
-    period: "Feb 2025 – Feb 2026",
+    period: "Feb 2025 - Feb 2026",
   },
 ];
 
@@ -367,7 +367,7 @@ github: "https://github.com/PabasaraIlankoon/elevision-device",
       "Non-contact capacitive sensing through the cup wall - hygienic, safe with hot liquids",
       "ESP32 + DFPlayer Mini architecture with UART/GPIO control",
       "8+ hour battery life - 18650 Li-ion with USB-C (TP4056) charging",
-      "Universal cup fit via adjustable silicone sleeve (50–100mm)",
+      "Universal cup fit via adjustable silicone sleeve (50-100mm)",
       "Full BOM under 8,000 LKR per unit",
       "No screen, smartphone, or digital literacy required",
     ],

@@ -50,35 +50,35 @@ const REPOS = [
 // ────────────────────────────────────────────────────────────────────
 
 // ─────────────────────────────────────────────────────────────────────
-// 📱 MOBILE APP SCREENSHOTS — mapped from your /public/images/ files
+// 📱 MOBILE APP SCREENSHOTS - mapped from your /public/images/ files
 // ─────────────────────────────────────────────────────────────────────
 const APP_IMAGES = [
-  { src: "/images/mobile_app_dashboard.jpg",    caption: "Live dashboard — active alert card" },
-  { src: "/images/alert_detail.jpg",            caption: "Alert detail — image, confidence, map" },
+  { src: "/images/mobile_app_dashboard.jpg",    caption: "Live dashboard - active alert card" },
+  { src: "/images/alert_detail.jpg",            caption: "Alert detail - image, confidence, map" },
   { src: "/images/alert_history.jpg",           caption: "Alert history with time filters" },
   { src: "/images/map.jpg",                     caption: "Full-screen device map" },
-  { src: "/images/analytics.jpg",               caption: "Analytics — trends and device stats" },
+  { src: "/images/analytics.jpg",               caption: "Analytics - trends and device stats" },
   { src: "/images/train_schedule.jpg",          caption: "train schedule-High risk train " },
   { src: "/images/mobile_SMS.jpg",              caption: "Elephant detected SMS alert " },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
-// 🖥  WEB DASHBOARD SCREENSHOTS — mapped from your /public/images/ files
+// 🖥  WEB DASHBOARD SCREENSHOTS - mapped from your /public/images/ files
 // ─────────────────────────────────────────────────────────────────────
 const WEB_IMAGES = [
-  { src: "/images/elevision-profile.jpg", caption: "Web dashboard — profile" },
-  { src: "/images/web_dashboard.jpg",     caption: "Web dashboard — live alert hero" },
+  { src: "/images/elevision-profile.jpg", caption: "Web dashboard - profile" },
+  { src: "/images/web_dashboard.jpg",     caption: "Web dashboard - live alert hero" },
   { src: "/images/elevision-webapp.jpg",  caption: "Web app overview" },
-  { src: "/images/web_map.jpg",           caption: "map — screen map" },
+  { src: "/images/web_map.jpg",           caption: "map - screen map" },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
-// 🔧 HARDWARE / PROJECT IMAGES — mapped from your /public/images/ files
+// 🔧 HARDWARE / PROJECT IMAGES - mapped from your /public/images/ files
 // ─────────────────────────────────────────────────────────────────────
 const PROJECT_IMAGES = [
-   { src: "/images/elevision.jpg",        caption: "Field hardware — full detection unit" },
+   { src: "/images/elevision.jpg",        caption: "Field hardware - full detection unit" },
   { src: "/images/elevision-pcb.jpg",    caption: "PCB & electronics layout" },
-    { src: "/images/Assembled_PCB.jpg",      caption: "Assembled PCB — Final" },
+    { src: "/images/Assembled_PCB.jpg",      caption: "Assembled PCB - Final" },
 ];
 
 
@@ -345,7 +345,7 @@ function HardwareTable() {
     { component: "Raspberry Pi 4 (4 GB)",  purpose: "AI processing & system brain",     notes: "aarch64, Debian Bookworm" },
     { component: "ELP 2MP USB Camera",     purpose: "Night-vision field capture",        notes: "Auto-detected at indices 0–3" },
     { component: "SIM800L GSM module",     purpose: "SMS fallback alerting",             notes: "GPIO14/15, 4V regulated supply" },
-    { component: "ONNX model (6.3 MB)",    purpose: "YOLOv8 Nano — elephant detection", notes: "~280–350 ms inference on Pi 4" },
+    { component: "ONNX model (6.3 MB)",    purpose: "YOLOv8 Nano - elephant detection", notes: "~280–350 ms inference on Pi 4" },
     { component: "LED + Buzzer",           purpose: "Trackside physical alert",          notes: "GPIO17 / GPIO24" },
     { component: "32 GB microSD",          purpose: "OS, model, offline queue",          notes: "Class 10" },
     { component: "Waterproof housing",     purpose: "Field deployment",                  notes: "IP-rated outdoor enclosure" },
@@ -466,7 +466,7 @@ function FirestoreSchema() {
 }
 
 // ─────────────────────────────────────────────
-// Creator card — bio on the left, photo on the right
+// Creator card - bio on the left, photo on the right
 // ─────────────────────────────────────────────
 function CreatorCard() {
   return (
@@ -476,10 +476,10 @@ function CreatorCard() {
         <div className="flex-1">
           <p className="text-lg font-bold text-gray-900 mb-1">Pabasara Ilankoon</p>
           <p className="text-sm text-indigo-600 font-medium mb-3">
-            Creator &amp; Lead Developer — Elevision
+            Creator &amp; Lead Developer - Elevision
           </p>
           <p className="text-gray-600 leading-relaxed text-[0.97rem] mb-4">
-            Elevision was designed, built, and field-tested end-to-end by Pabasara Ilankoon —
+            Elevision was designed, built, and field-tested end-to-end by Pabasara Ilankoon -
             from training and exporting the YOLOv8 detection model, to wiring and deploying the
             Raspberry Pi field unit, to building the Flutter app and Next.js control-room
             dashboard that bring the alerts to life.
@@ -506,11 +506,11 @@ function CreatorCard() {
           </div>
         </div>
 
-        {/* Photo — sits on the right on desktop, below the bio on mobile */}
+        {/* Photo - sits on the right on desktop, below the bio on mobile */}
         <div className="flex-shrink-0 mx-auto md:mx-0">
           <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
             <Image
-              src="/images/creator-pabasara-elevision.jpg"
+              src="/images/eleya.jpg"
               alt="Pabasara Ilankoon, creator of Elevision, with the field detection unit"
               fill
               className="object-cover"
@@ -525,8 +525,8 @@ function CreatorCard() {
 const HIGHLIGHTS = [
   { icon: "🐘", title: "Detects elephants at 94% average confidence",      body: "YOLOv8 Nano fine-tuned on a custom wildlife-railway dataset achieves 94% average confidence with a false positive rate below 3%. Two consecutive positive frames are required before an alert fires - eliminating momentary shadows or debris triggers." },
   { icon: "⚡", title: "End-to-end alert in under 5 seconds",              body: "From the moment an elephant is confirmed on camera to a push notification on the operator's phone, the pipeline completes in under 5 seconds. Firebase real-time listeners update the web dashboard in under 2 seconds." },
-  { icon: "🚂", title: "Identifies which trains are at risk — right now",  body: "Five high-risk trains pre-loaded with full stop schedules are cross-referenced against the alert location in real time. The engine colour-codes risk levels and updates live as time passes - 'In 23 min' ticks down every minute." },
-  { icon: "📡", title: "GSM SMS fallback — works without internet",        body: "If the Pi loses connectivity, the SIM800L GSM module fires an SMS within 30 seconds. The offline queue persists alerts to disk and retries automatically when connectivity is restored." },
+  { icon: "🚂", title: "Identifies which trains are at risk - right now",  body: "Five high-risk trains pre-loaded with full stop schedules are cross-referenced against the alert location in real time. The engine colour-codes risk levels and updates live as time passes - 'In 23 min' ticks down every minute." },
+  { icon: "📡", title: "GSM SMS fallback - works without internet",        body: "If the Pi loses connectivity, the SIM800L GSM module fires an SMS within 30 seconds. The offline queue persists alerts to disk and retries automatically when connectivity is restored." },
   { icon: "🌐", title: "Two interfaces: Flutter app + Next.js dashboard",  body: "The Flutter app targets railway operators in the field with push notifications, an alert feed, and Sinhala / English language switching. The Next.js dashboard targets control rooms with live alerts, CSV export, and analytics charts." },
   { icon: "🔋", title: "Designed for remote, off-grid deployment",         body: "Housed in a waterproof enclosure, runs on UPS battery for up to 4 hours. The systemd service auto-starts on every boot - no manual intervention after field installation." },
 ];
@@ -616,12 +616,12 @@ export function ElevisionDetail() {
         📸 ADD YOUR HARDWARE / PROJECT IMAGES HERE
         Save 6 cropped photos to:
           /public/images/elevision/
-            hardware-unit.jpg   — Pi + all modules in enclosure
-            camera-mount.jpg    — ELP camera on mount / pole
-            gsm-wiring.jpg      — SIM800L wiring close-up
-            field-deploy.jpg    — Unit installed trackside at Palugaswewa
-            detection-demo.jpg  — Terminal or screen showing detection running
-            system-overview.jpg — Wide shot of full assembled system
+            hardware-unit.jpg   - Pi + all modules in enclosure
+            camera-mount.jpg    - ELP camera on mount / pole
+            gsm-wiring.jpg      - SIM800L wiring close-up
+            field-deploy.jpg    - Unit installed trackside at Palugaswewa
+            detection-demo.jpg  - Terminal or screen showing detection running
+            system-overview.jpg - Wide shot of full assembled system
         ════════════════════════════════════════════════════
       */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
@@ -691,7 +691,7 @@ export function ElevisionDetail() {
             <>
               <p className="text-gray-500 text-sm leading-relaxed mb-5">
                 When an alert fires, the engine checks which trains are approaching. Drag the slider to
-                simulate time passing — watch the countdown update live.
+                simulate time passing - watch the countdown update live.
               </p>
               <TrainRiskEngine />
             </>
@@ -700,7 +700,7 @@ export function ElevisionDetail() {
             <>
               <p className="text-gray-500 text-sm leading-relaxed mb-5">
                 Every detection writes a single Firestore document. Both the Flutter app and Next.js
-                dashboard read from this collection via real-time listeners — no polling needed.
+                dashboard read from this collection via real-time listeners - no polling needed.
               </p>
               <FirestoreSchema />
             </>
@@ -717,7 +717,7 @@ export function ElevisionDetail() {
           <div><span className="text-indigo-400">GPIO14 (TX)</span> ← SIM800L RX &nbsp;·&nbsp; <span className="text-indigo-400">GPIO15 (RX)</span> → SIM800L TX</div>
           <div><span className="text-emerald-400">GPIO17</span> → LED indicator (330Ω) &nbsp;&nbsp; <span className="text-amber-400">GPIO24</span> → Buzzer</div>
           <div><span className="text-violet-400">GPIO27</span> → SIM800L RST &nbsp;·&nbsp; USB → ELP camera</div>
-          <div className="mt-2 text-yellow-600">⚠ SIM800L draws up to 2A surge — power from a separate 4V regulated supply, NOT the Pi GPIO pins.</div>
+          <div className="mt-2 text-yellow-600">⚠ SIM800L draws up to 2A surge - power from a separate 4V regulated supply, NOT the Pi GPIO pins.</div>
         </div>
       </div>
 
@@ -727,12 +727,12 @@ export function ElevisionDetail() {
         📱 ADD YOUR FLUTTER MOBILE APP SCREENSHOTS HERE
         Crop your full-page app screenshot into 6 parts and save to:
           /public/images/elevision/
-            app-dashboard.jpg      — Main dashboard screen (top section)
-            app-alert-detail.jpg   — Alert detail: image + confidence + map
-            app-alert-history.jpg  — Alert list / history screen
-            app-train-schedule.jpg — Train risk / schedule screen
-            app-map.jpg            — Full-screen map view
-            app-analytics.jpg      — Analytics / stats screen
+            app-dashboard.jpg      - Main dashboard screen (top section)
+            app-alert-detail.jpg   - Alert detail: image + confidence + map
+            app-alert-history.jpg  - Alert list / history screen
+            app-train-schedule.jpg - Train risk / schedule screen
+            app-map.jpg            - Full-screen map view
+            app-analytics.jpg      - Analytics / stats screen
 
         TIP: Use a phone frame / mockup tool (Shots.so, Mockuphone)
         to wrap each screenshot before saving - looks much more
@@ -821,14 +821,14 @@ export function ElevisionDetail() {
             </div>
             <ul className="space-y-1.5">
               {[
-                "Live dashboard — active alert with image + confidence",
+                "Live dashboard - active alert with image + confidence",
                 "Alert history with Today / Week / Month filters",
-                "Train schedule — which trains are at risk NOW",
+                "Train schedule - which trains are at risk NOW",
                 "Full-screen map with device locations",
                 "Analytics: trends, top-detecting devices",
                 "EN / Sinhala language toggle (persisted)",
                 "Emergency SOS call button",
-                "Offline-capable — cached alerts without internet",
+                "Offline-capable - cached alerts without internet",
               ].map((item, j) => (
                 <li key={j} className="flex items-start gap-2 text-[12px] text-gray-600">
                   <ChevronRight size={11} className="text-indigo-400 flex-shrink-0 mt-0.5" />

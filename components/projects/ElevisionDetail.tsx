@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Github,
   ExternalLink,
+  Linkedin,
   X,
   ChevronLeft,
   ZoomIn,
@@ -464,6 +465,63 @@ function FirestoreSchema() {
   );
 }
 
+// ─────────────────────────────────────────────
+// Creator card — bio on the left, photo on the right
+// ─────────────────────────────────────────────
+function CreatorCard() {
+  return (
+    <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
+      <SectionLabel>Creator</SectionLabel>
+      <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
+        <div className="flex-1">
+          <p className="text-lg font-bold text-gray-900 mb-1">Pabasara Ilankoon</p>
+          <p className="text-sm text-indigo-600 font-medium mb-3">
+            Creator &amp; Lead Developer — Elevision
+          </p>
+          <p className="text-gray-600 leading-relaxed text-[0.97rem] mb-4">
+            Elevision was designed, built, and field-tested end-to-end by Pabasara Ilankoon —
+            from training and exporting the YOLOv8 detection model, to wiring and deploying the
+            Raspberry Pi field unit, to building the Flutter app and Next.js control-room
+            dashboard that bring the alerts to life.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="https://github.com/PabasaraIlankoon"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-[12px] font-semibold px-3 py-1.5 rounded-full border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              <Github size={13} />
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/pabasara-ilankoon"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-[12px] font-semibold px-3 py-1.5 rounded-full border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              <Linkedin size={13} />
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        {/* Photo — sits on the right on desktop, below the bio on mobile */}
+        <div className="flex-shrink-0 mx-auto md:mx-0">
+          <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+            <Image
+              src="/images/creator-pabasara-elevision.jpg"
+              alt="Pabasara Ilankoon, creator of Elevision, with the field detection unit"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const HIGHLIGHTS = [
   { icon: "🐘", title: "Detects elephants at 94% average confidence",      body: "YOLOv8 Nano fine-tuned on a custom wildlife-railway dataset achieves 94% average confidence with a false positive rate below 3%. Two consecutive positive frames are required before an alert fires - eliminating momentary shadows or debris triggers." },
   { icon: "⚡", title: "End-to-end alert in under 5 seconds",              body: "From the moment an elephant is confirmed on camera to a push notification on the operator's phone, the pipeline completes in under 5 seconds. Firebase real-time listeners update the web dashboard in under 2 seconds." },
@@ -517,6 +575,9 @@ export function ElevisionDetail() {
           ))}
         </div>
       </div>
+
+      {/* ── 1b. Creator ── */}
+      <CreatorCard />
 
       {/* ── 2. Repositories ── */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">

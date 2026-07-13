@@ -68,7 +68,7 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden bg-bg"
       style={{
         backgroundImage:
-          "radial-gradient(420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(108,99,255,0.14), transparent 65%)",
+          "radial-gradient(420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(108,99,255,0.07), transparent 65%)",
       }}
     >
       <div className="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-16 items-center relative z-10">
